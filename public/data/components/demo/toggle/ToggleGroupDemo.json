@@ -1,0 +1,4 @@
+{
+  "filename": "ToggleGroupDemo.tsx",
+  "content": "import { Toggle } from \"@/components/ui/toggle\";\r\nimport { ToggleGroup } from \"@/components/ui/toggle-group\";\r\nimport { Bold, Italic, Underline } from \"lucide-react\";\r\n\r\nexport default function ToggleGroupDemo() {\r\n  return (\r\n    <ToggleGroup variant={\"outline\"} >\r\n      <Toggle value=\"bold\" >\r\n        <Bold />\r\n      </Toggle>\r\n      <Toggle value=\"italic\" >\r\n        <Italic />\r\n      </Toggle>\r\n      <Toggle value=\"underline\" >\r\n        <Underline />\r\n      </Toggle>\r\n    </ToggleGroup>\r\n  );\r\n}\r\n"
+}

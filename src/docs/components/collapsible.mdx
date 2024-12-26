@@ -1,0 +1,47 @@
+import ComponentViewer from "@/components/docs/ComponentViewer";
+import { Step, Stepper } from "@/components/docs/Stepper";
+import CodeViewer from "@/components/docs/CodeViewer";
+import CollapsibleDemo from "@/components/demo/collapsible/CollapsibleDemo";
+export const metadata = {
+  title: "Collapsible",
+  breadcrumb: ["Docs", "Collapsible"],
+};
+
+<ComponentViewer json="/data/components/demo/collapsible/CollapsibleDemo.json">
+  <CollapsibleDemo />
+</ComponentViewer>
+
+## Installation
+
+<Stepper totalSteps={2}>
+  <Step stepNumber={1}>
+    <h6>Install dependencies</h6>
+    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the code below</h6>
+    <CodeViewer className="mt-3" path="./src/components/ui/collapsible.tsx" />
+  </Step>
+</Stepper>
+
+## Usage
+
+<CodeViewer
+  className="mt-3"
+  code={`import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsiblePanel,
+    CollapsibleTrigger,
+} from "@/components/ui/collapsible";`}
+/>
+<CodeViewer className="mt-3" code={`<Collapsible>
+    <CollapsibleTrigger>Base-ui Primiteves</CollapsibleTrigger>
+    <CollapsiblePanel>
+        <CollapsibleContent>
+            <div>@base-ui-components/collapsible</div>
+            <div>@base-ui-components/checkbox</div>
+            <div>@base-ui-components/dialog</div>
+        </CollapsibleContent>
+    </CollapsiblePanel>
+</Collapsible>`} />

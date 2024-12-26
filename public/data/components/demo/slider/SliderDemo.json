@@ -1,0 +1,4 @@
+{
+  "filename": "SliderDemo.tsx",
+  "content": "import { Slider } from \"@/components/ui/slider\";\r\n\r\nexport default function SliderDemo() {\r\n  return <Slider defaultValue={25}/>;\r\n}"
+}

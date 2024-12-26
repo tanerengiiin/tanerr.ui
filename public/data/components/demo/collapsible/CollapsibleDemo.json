@@ -1,0 +1,4 @@
+{
+  "filename": "CollapsibleDemo.tsx",
+  "content": "import {\r\n  Collapsible,\r\n  CollapsibleContent,\r\n  CollapsiblePanel,\r\n  CollapsibleTrigger,\r\n} from \"@/components/ui/collapsible\";\r\n\r\nexport default function CheckboxDemo() {\r\n  return (\r\n    <Collapsible>\r\n      <CollapsibleTrigger>Base-ui Primiteves</CollapsibleTrigger>\r\n      <CollapsiblePanel>\r\n        <CollapsibleContent>\r\n          <div>@base-ui-components/collapsible</div>\r\n          <div>@base-ui-components/checkbox</div>\r\n          <div>@base-ui-components/dialog</div>\r\n        </CollapsibleContent>\r\n      </CollapsiblePanel>\r\n    </Collapsible>\r\n  );\r\n}\r\n"
+}

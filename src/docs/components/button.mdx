@@ -1,0 +1,31 @@
+import { Button } from "@/components/ui/button";
+import ComponentViewer from "@/components/docs/ComponentViewer";
+import { Step, Stepper } from "@/components/docs/Stepper";
+import CodeViewer from "@/components/docs/CodeViewer";
+export const metadata = {
+  title: "Button",
+  breadcrumb: ["Docs", "Button"],
+};
+
+<ComponentViewer
+  code={`import { Button } from "@/components/ui/button"
+ 
+export function ButtonDemo() {
+    return <Button>Button</Button>
+}`}
+>
+  <Button>Button</Button>
+</ComponentViewer>
+
+## Installation
+
+<Stepper totalSteps={2}>
+  <Step stepNumber={1}>
+    <h6>Install dependencies</h6>
+    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`}/>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the code below</h6>
+    <CodeViewer className="mt-3" path="./src/components/ui/button.tsx"/>
+  </Step>
+</Stepper>

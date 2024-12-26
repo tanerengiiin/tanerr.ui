@@ -1,0 +1,4 @@
+{
+  "filename": "ProgressDemo.tsx",
+  "content": "\"use client\";\r\nimport { Progress } from \"@/components/ui/progress\";\r\nimport * as React from \"react\";\r\n\r\nexport default function ExampleProgress() {\r\n  const [value, setValue] = React.useState(25);\r\n    \r\n  React.useEffect(() => {\r\n    const interval = window.setInterval(() => {\r\n      setValue((prev) => {\r\n        if (prev >= 100) {\r\n          return 1; \r\n        }\r\n        return prev + 25; \r\n      });\r\n    }, 1000); \r\n\r\n    return () => clearInterval(interval);\r\n  }, []);\r\n\r\n  return <Progress value={value} className=\"w-60\" />;\r\n}"
+}

@@ -1,0 +1,4 @@
+{
+  "filename": "ToggleDemo.tsx",
+  "content": "import { Toggle } from \"@/components/ui/toggle\";\r\nimport { Bold } from \"lucide-react\";\r\n\r\nexport default function ToggleDemo() {\r\n  return <Toggle color=\"default\" variant={\"outline\"} aria-label=\"Toggle bold\">\r\n  <Bold className=\"h-4 w-4\" />\r\n  Bold\r\n</Toggle>;\r\n}\r\n"
+}

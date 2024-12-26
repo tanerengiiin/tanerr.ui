@@ -1,0 +1,4 @@
+{
+  "filename": "CheckboxDemo.tsx",
+  "content": "import { Checkbox } from \"@/components/ui/checkbox\";\r\n\r\nexport default function CheckboxDemo() {\r\n  return <Checkbox />;\r\n}"
+}

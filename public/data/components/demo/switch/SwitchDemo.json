@@ -1,0 +1,4 @@
+{
+  "filename": "SwitchDemo.tsx",
+  "content": "import { Switch } from \"@/components/ui/switch\";\r\n\r\nexport default function SwitchDemo() {\r\n  return <Switch />;\r\n}"
+}

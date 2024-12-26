@@ -1,0 +1,4 @@
+{
+  "filename": "RadioGroupDemo.tsx",
+  "content": "import { Radio, RadioGroup } from \"@/components/ui/radio-group\";\r\n\r\nexport default function RadioGroupDemo() {\r\n  return (\r\n    <RadioGroup defaultValue={\"defult\"}>\r\n      <label className=\"flex items-center gap-2\">\r\n        <Radio value={\"default\"} />\r\n        <span className=\"text-sm font-medium\">Default</span>\r\n      </label>\r\n      <label className=\"flex items-center gap-2\">\r\n        <Radio value={\"comfortable\"} />\r\n        <span className=\"text-sm font-medium\">Comfortable</span>\r\n      </label>\r\n      <label className=\"flex items-center gap-2\">\r\n        <Radio value={\"compact\"} />\r\n        <span className=\"text-sm font-medium\">Compact</span>\r\n      </label>\r\n    </RadioGroup>\r\n  );\r\n}\r\n"
+}

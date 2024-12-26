@@ -1,0 +1,58 @@
+import ComponentViewer from "@/components/docs/ComponentViewer";
+import { Button } from "@/components/ui/button";
+import CodeViewer from "@/components/docs/CodeViewer";
+import { Step, Stepper } from "@/components/docs/Stepper";
+import AlertDialogDemo from "@/components/demo/alert-dialog/AlertDialogDemo.tsx";
+import NestedAlertDialogsDemo from "@/components/demo/alert-dialog/NestedAlertDialogsDemo.tsx";
+export const metadata = {
+  title: "Alert Dialog",
+  breadcrumb: ["Docs", "Alert Dialog"],
+};
+
+<ComponentViewer json="/data/components/demo/alert-dialog/AlertDialogDemo.json">
+  <AlertDialogDemo />
+</ComponentViewer>
+
+## Installation
+
+<Stepper totalSteps={2}>
+  <Step stepNumber={1}>
+    <h6>Install dependencies</h6>
+    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the code below</h6>
+    <CodeViewer className="mt-3" path="./src/components/ui/alert-dialog.tsx" />
+  </Step>
+</Stepper>
+
+## Usage
+
+<CodeViewer
+  className="mt-3"
+  code={`import { 
+    AlertDialog, 
+    AlertDialogTrigger, 
+    AlertDialogPopup, 
+    AlertDialogTitle, 
+    AlertDialogDescription 
+} from "@/components/ui/alert-dialog";`}
+/>
+<CodeViewer
+  className="mt-3"
+  code={`<AlertDialog>
+    <AlertDialogTrigger render={<Button>Open</Button>}/>
+    <AlertDialogPopup>
+      <AlertDialogTitle>Edit profile</AlertDialogTitle>
+      <AlertDialogDescription>Make changes to your profile here. Click save when you're done.</AlertDialogDescription>
+    </AlertDialogPopup>
+  </AlertDialog>`}
+/>
+
+## Examples
+
+### Nested dialogs
+
+<ComponentViewer json="/data/components/demo/alert-dialog/NestedAlertDialogsDemo.json">
+  <NestedAlertDialogsDemo />
+</ComponentViewer>

@@ -1,0 +1,113 @@
+[
+  {
+    "type": "category",
+    "name": "components",
+    "children": [
+      {
+        "type": "doc",
+        "name": "accordion",
+        "path": "components/accordion"
+      },
+      {
+        "type": "doc",
+        "name": "alert-dialog",
+        "path": "components/alert-dialog"
+      },
+      {
+        "type": "doc",
+        "name": "button",
+        "path": "components/button"
+      },
+      {
+        "type": "doc",
+        "name": "checkbox-group",
+        "path": "components/checkbox-group"
+      },
+      {
+        "type": "doc",
+        "name": "checkbox",
+        "path": "components/checkbox"
+      },
+      {
+        "type": "doc",
+        "name": "collapsible",
+        "path": "components/collapsible"
+      },
+      {
+        "type": "doc",
+        "name": "dialog",
+        "path": "components/dialog"
+      },
+      {
+        "type": "doc",
+        "name": "input",
+        "path": "components/input"
+      },
+      {
+        "type": "doc",
+        "name": "menu",
+        "path": "components/menu"
+      },
+      {
+        "type": "doc",
+        "name": "popover",
+        "path": "components/popover"
+      },
+      {
+        "type": "doc",
+        "name": "preview-card",
+        "path": "components/preview-card"
+      },
+      {
+        "type": "doc",
+        "name": "progress",
+        "path": "components/progress"
+      },
+      {
+        "type": "doc",
+        "name": "radio-group",
+        "path": "components/radio-group"
+      },
+      {
+        "type": "doc",
+        "name": "scroll-area",
+        "path": "components/scroll-area"
+      },
+      {
+        "type": "doc",
+        "name": "separator",
+        "path": "components/separator"
+      },
+      {
+        "type": "doc",
+        "name": "slider",
+        "path": "components/slider"
+      },
+      {
+        "type": "doc",
+        "name": "switch",
+        "path": "components/switch"
+      },
+      {
+        "type": "doc",
+        "name": "tabs",
+        "path": "components/tabs"
+      },
+      {
+        "type": "doc",
+        "name": "toggle-group",
+        "path": "components/toggle-group"
+      },
+      {
+        "type": "doc",
+        "name": "toggle",
+        "path": "components/toggle"
+      },
+      {
+        "type": "doc",
+        "name": "tooltip",
+        "path": "components/tooltip"
+      }
+    ]
+  }
+]

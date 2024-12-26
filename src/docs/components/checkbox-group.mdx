@@ -1,0 +1,37 @@
+import ComponentViewer from "@/components/docs/ComponentViewer";
+import { Step, Stepper } from "@/components/docs/Stepper";
+import CodeViewer from "@/components/docs/CodeViewer";
+import CheckboxGroupDemo from "@/components/demo/checkbox/CheckboxGroupDemo";
+
+export const metadata = {
+  title: "Checbox Group",
+  breadcrumb: ["Docs", "Checkbox Group"],
+};
+
+<ComponentViewer json="/data/components/demo/checkbox/CheckboxGroupDemo.json">
+  <CheckboxGroupDemo />
+</ComponentViewer>
+
+## Installation
+
+<Stepper totalSteps={2}>
+  <Step stepNumber={1}>
+    <h6>Install dependencies</h6>
+    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the code below</h6>
+    <CodeViewer
+      className="mt-3"
+      path="./src/components/ui/checkbox-group.tsx"
+    />
+  </Step>
+</Stepper>
+
+## Usage
+
+<CodeViewer
+  className="mt-3"
+  code={`import { Checkbox } from "@/components/ui/checkbox"`}
+/>
+<CodeViewer className="mt-3" code={`<Checkbox />`} />
