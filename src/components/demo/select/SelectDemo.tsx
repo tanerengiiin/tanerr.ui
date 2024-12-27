@@ -19,34 +19,35 @@ export default function SelectDemo() {
       <SelectPositioner>
         <SelectPopup>
           <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectSeparator/>
+          <SelectItem value="orange">Orange</SelectItem>
+          <SelectItem value="strawberry">Strawberry</SelectItem>
+          <SelectSeparator />
           <SelectGroup>
-            <SelectGroupLabel>Group</SelectGroupLabel>
-            <SelectItem value="blueberry">Blueberry</SelectItem>
-            <SelectItem value="grapes">Grapes</SelectItem>
-            <SelectItem value="pineapple">Pineapple</SelectItem>
+            <SelectGroupLabel>Exotic Fruits</SelectGroupLabel>
+            <SelectItem value="mango">Mango</SelectItem>
+            <SelectItem value="dragonfruit">Dragonfruit</SelectItem>
+            <SelectItem value="papaya">Papaya</SelectItem>
           </SelectGroup>
-          <SelectSeparator/>
+          <SelectSeparator />
           <SelectGroup>
-            <SelectGroupLabel>Group</SelectGroupLabel>
-            <SelectItem value="blueberry">Blueberry</SelectItem>
-            <SelectItem value="grapes">Grapes</SelectItem>
-            <SelectItem value="pineapple">Pineapple</SelectItem>
+            <SelectGroupLabel>Citrus Fruits</SelectGroupLabel>
+            <SelectItem value="lemon">Lemon</SelectItem>
+            <SelectItem value="lime">Lime</SelectItem>
+            <SelectItem value="grapefruit">Grapefruit</SelectItem>
           </SelectGroup>
-          <SelectSeparator/>
+          <SelectSeparator />
           <SelectGroup>
-            <SelectGroupLabel>Group</SelectGroupLabel>
+            <SelectGroupLabel>Berries</SelectGroupLabel>
             <SelectItem value="blueberry">Blueberry</SelectItem>
-            <SelectItem value="grapes">Grapes</SelectItem>
-            <SelectItem value="pineapple">Pineapple</SelectItem>
+            <SelectItem value="raspberry">Raspberry</SelectItem>
+            <SelectItem value="blackberry">Blackberry</SelectItem>
           </SelectGroup>
-          <SelectSeparator/>
+          <SelectSeparator />
           <SelectGroup>
-            <SelectGroupLabel>Group</SelectGroupLabel>
-            <SelectItem value="blueberry">Blueberry</SelectItem>
-            <SelectItem value="grapes">Grapes</SelectItem>
+            <SelectGroupLabel>Tropical Fruits</SelectGroupLabel>
             <SelectItem value="pineapple">Pineapple</SelectItem>
+            <SelectItem value="coconut">Coconut</SelectItem>
+            <SelectItem value="guava">Guava</SelectItem>
           </SelectGroup>
         </SelectPopup>
       </SelectPositioner>
