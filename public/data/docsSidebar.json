@@ -75,6 +75,11 @@
       },
       {
         "type": "doc",
+        "name": "select",
+        "path": "components/select"
+      },
+      {
+        "type": "doc",
         "name": "separator",
         "path": "components/separator"
       },

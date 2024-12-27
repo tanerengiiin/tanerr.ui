@@ -87,6 +87,7 @@ export function generateStaticParams() {
     { slug: ["components", "dialog"] },
     { slug: ["components", "collapsible"] },
     { slug: ["components", "input"] },
+    { slug: ["components", "select"] },
     { slug: ["components", "alert-dialog"] },
     { slug: ["components", "checkbox"] },
     { slug: ["components", "checkbox-group"] },
