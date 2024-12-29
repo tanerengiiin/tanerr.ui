@@ -51,7 +51,7 @@ const FieldDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <FieldPrimitive.Description
     ref={ref}
-    className={cn("text-sm text-accent", className)}
+    className={cn("text-sm text-text-accent", className)}
     {...props}
   />
 ));

@@ -2,31 +2,13 @@
 
 import * as React from "react";
 import { Form as FormPrimitive } from "@base-ui-components/react/form";
-
-interface FormProps
-  extends React.ComponentPropsWithoutRef<typeof FormPrimitive> {
-  onSubmit?: (values: Record<string, any>) => void;
-}
+import { cn } from "@/lib/utils";
 
 const Form = React.forwardRef<
   React.ComponentRef<typeof FormPrimitive>,
-  FormProps
->(({ onSubmit, ...props }, ref) => {
-  
-
-  const onFormSubmit: SubmitHandler<Record<string, any>> = (data) => {
-    onSubmit?.(data); // Doğrulama başarılı olursa verileri ilet
-  };
-
-  return (
-    <FormPrimitive
-      ref={ref}
-      errors={errors}
-      onSubmit={handleSubmit(onFormSubmit)}
-      onClearErrors={setErrors}
-      {...props}
-    />
-  );
+  React.ComponentPropsWithoutRef<typeof FormPrimitive>
+>(({ className, ...props }, ref) => {
+  return <FormPrimitive ref={ref} className={cn("space-y-4", className)} {...props} />;
 });
 
 Form.displayName = FormPrimitive.displayName;
