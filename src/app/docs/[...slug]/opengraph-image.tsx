@@ -13,7 +13,11 @@ export const size = {
 export const contentType = "image/png";
 
 // Image generation
-export default async function Image({ params }: { params: { slug: string } }) {
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ slug: string | string[] }>;
+}) {
   // Font
   const geistSemiBold = fetch(
     new URL("/public/fonts/Geist-SemiBold.ttf", import.meta.url)
@@ -22,7 +26,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
     new URL("/public/fonts/Geist-Medium.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
-  const slugParts = params.slug;
+  const slugParts = (await params).slug;
   const slugPath = Array.isArray(slugParts) ? slugParts.join("/") : slugParts;
 
   const { metadata } = await import(`@/docs/${slugPath}.mdx`);
