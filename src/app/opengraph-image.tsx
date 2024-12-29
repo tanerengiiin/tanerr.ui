@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 // Image metadata
-export const alt = "Document";
+export const alt = "Profile";
 export const size = {
   width: 1200,
   height: 630,
@@ -13,24 +13,11 @@ export const size = {
 export const contentType = "image/png";
 
 // Image generation
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ slug: string | string[] }>;
-}) {
+export default async function Image() {
   // Font
-  const geistSemiBold = fetch(
-    new URL("/public/fonts/Geist-SemiBold.ttf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
   const geistMedium = fetch(
     new URL("/public/fonts/Geist-Medium.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
-
-  const slugParts = (await params).slug;
-  const slugPath = Array.isArray(slugParts) ? slugParts.join("/") : slugParts;
-
-  const { metadata } = await import(`@/docs/${slugPath}.mdx`);
-
   return new ImageResponse(
     (
       // ImageResponse JSX element
@@ -41,13 +28,10 @@ export default async function Image({
         <div style={{ display: "flex" }}></div>
         <div style={{ display: "flex" }} tw="flex-col">
           <div style={{ display: "flex" }} tw="items-center">
-            <div tw="w-12 h-12 rounded-full bg-[#266DF0]"></div>
-            <div tw="ml-4 text-4xl text-neutral-800 font-medium">
+            <div tw="w-20 h-20 rounded-full bg-[#266DF0]"></div>
+            <div tw="ml-4 text-6xl text-neutral-800 font-medium">
               / Taner Engin
             </div>
-          </div>
-          <div tw="text-9xl text-neutral-800 mt-8 font-semibold">
-            {metadata?.title ?? "Document"}
           </div>
         </div>
       </div>
@@ -58,12 +42,6 @@ export default async function Image({
       // size config to also set the ImageResponse's width and height.
       ...size,
       fonts: [
-        {
-          name: "Geist",
-          data: await geistSemiBold,
-          style: "normal",
-          weight: 600,
-        },
         {
           name: "Geist",
           data: await geistMedium,
