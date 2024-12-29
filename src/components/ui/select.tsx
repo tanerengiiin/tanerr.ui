@@ -42,7 +42,7 @@ const SelectPositioner = React.forwardRef<
   <SelectPrimitive.Portal>
     <SelectPrimitive.Positioner
       ref={ref}
-      className={cn("outline-none z-50", className)}
+      className={cn("outline-none z-50 data-[open]:animate-in data-[open]:fade-in-0 data-[starting-style]:duration-100 ", className)}
       sideOffset={sideOffset}
       {...props}
     >
@@ -97,7 +97,7 @@ const SelectPopup = React.forwardRef<
   <SelectPrimitive.Popup
     ref={ref}
     className={cn(
-      "group origin-[var(--transform-origin)] rounded-md bg-background py-1 text-primary shadow-lg outline outline-1 outline-border data-[side=none]:data-[starting-style]:scale-100 data-[side=none]:data-[starting-style]:opacity-100 data-[side=none]:data-[starting-style]:transition-none dark:shadow-none",
+      "group origin-[var(--transform-origin)] rounded-md bg-background py-1 text-primary shadow-lg outline outline-1 outline-border dark:shadow-none ",
       className
     )}
     {...props}

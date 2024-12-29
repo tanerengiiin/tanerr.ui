@@ -1,0 +1,12 @@
+import { NumberField,  NumberFieldInput, NumberFieldScrubArea } from "@/components/ui/number-field";
+
+export default function NumberFieldDemo() {
+  return (
+    <NumberField>
+        <NumberFieldScrubArea>
+            <label className="font-medium text-sm">Amount</label>
+        </NumberFieldScrubArea>
+        <NumberFieldInput className="w-40"/>
+    </NumberField>
+  );
+}

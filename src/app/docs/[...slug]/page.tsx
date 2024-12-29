@@ -13,7 +13,7 @@ export async function generateMetadata({
 
   const { metadata } = await import(`@/docs/${slugPath}.mdx`);
   return {
-    title: metadata.title + " ✦  " + "tanerr/ui",
+    title: metadata.title + " ✦ " + "tanerr/ui",
   };
 }
 
@@ -103,6 +103,7 @@ export function generateStaticParams() {
     { slug: ["components", "accordion"] },
     { slug: ["components", "tabs"] },
     { slug: ["components", "toggle"] },
+    { slug: ["components", "number-field"] },
     { slug: ["components", "toggle-group"] },
   ];
 }

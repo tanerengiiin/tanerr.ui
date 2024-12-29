@@ -1,4 +1,4 @@
 {
   "filename": "InputDemo.tsx",
-  "content": "import { Input } from \"@/components/ui/input\";\r\n\r\nexport default function SwitchDemo() {\r\n  return <Input className=\"w-64\" placeholder=\"Email\"/>;\r\n}"
+  "content": "import { Input } from \"@/components/ui/input\";\n\nexport default function SwitchDemo() {\n  return <Input className=\"w-64\" placeholder=\"Email\"/>;\n}"
 }

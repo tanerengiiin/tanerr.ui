@@ -50,6 +50,11 @@
       },
       {
         "type": "doc",
+        "name": "number-field",
+        "path": "components/number-field"
+      },
+      {
+        "type": "doc",
         "name": "popover",
         "path": "components/popover"
       },

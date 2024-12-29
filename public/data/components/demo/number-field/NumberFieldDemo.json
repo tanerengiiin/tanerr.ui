@@ -1,0 +1,4 @@
+{
+  "filename": "NumberFieldDemo.tsx",
+  "content": "import { NumberField, NumberFieldGroup, NumberFieldInput } from \"@/components/ui/number-field\";\n\nexport default function NumberFieldDemo() {\n  return (\n    <NumberField>\n        <NumberFieldGroup>\n            <NumberFieldInput/>\n        </NumberFieldGroup>\n    </NumberField>\n  );\n}"
+}
