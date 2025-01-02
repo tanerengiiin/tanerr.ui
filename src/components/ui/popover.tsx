@@ -16,7 +16,7 @@ const PopoverBackdrop = React.forwardRef<
   <PopoverPrimitive.Backdrop
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-black/60 data-[open]:animate-in data-[ending-style]:animate-out data-[ending-style]:fade-out-0 data-[open]:fade-in-0",
+      "pointer-events-none fixed inset-0 z-50 bg-black/30 dark:bg-black/60 transition-all duration-200 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
       className
     )}
     {...props}
@@ -24,59 +24,53 @@ const PopoverBackdrop = React.forwardRef<
 ));
 PopoverBackdrop.displayName = PopoverPrimitive.Backdrop.displayName;
 
+const PopoverPositioner = React.forwardRef<
+  React.ComponentRef<typeof PopoverPrimitive.Positioner>,
+  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Positioner> & {
+    backdrop?: boolean;
+  }
+>(({ className, backdrop = false, sideOffset = 8, ...props }, ref) => (
+  <PopoverPrimitive.Portal>
+    {backdrop && <PopoverBackdrop />}
+    <PopoverPrimitive.Positioner
+      ref={ref}
+      sideOffset={sideOffset}
+      className={cn("outline-none z-50", className)}
+      {...props}
+    />
+  </PopoverPrimitive.Portal>
+));
+PopoverPositioner.displayName = PopoverPrimitive.Positioner.displayName;
+
 const PopoverPopup = React.forwardRef<
   React.ComponentRef<typeof PopoverPrimitive.Popup>,
-  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Popup> &
-    React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Positioner> & {
-      arrow?: boolean;
-      backdrop?: boolean;
-    }
->(
-  (
-    {
-      className,
-      children,
-      arrow = false,
-      backdrop = false,
-      align = "center",
-      sideOffset = 10,
-      ...props
-    },
-    ref
-  ) => (
-    <PopoverPrimitive.Portal>
-      {backdrop && <PopoverBackdrop />}
-      <PopoverPrimitive.Positioner
-        sideOffset={sideOffset}
-        align={align}
-        className={"z-50"}
-      >
-        <PopoverPrimitive.Popup
-          ref={ref}
-          className={cn(
-            "z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[open]:animate-in data-[ending-style]:animate-out data-[ending-style]:fade-out-0 data-[open]:fade-in-0 data-[ending-style]:zoom-out-95 data-[open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-            className
-          )}
-          {...props}
-        >
-          {arrow && (
-            <PopoverPrimitive.Arrow className="data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180">
-              <ArrowSvg />
-            </PopoverPrimitive.Arrow>
-          )}
-          {children}
-        </PopoverPrimitive.Popup>
-      </PopoverPrimitive.Positioner>
-    </PopoverPrimitive.Portal>
-  )
-);
+  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Popup> & {
+    arrow?: boolean;
+  }
+>(({ className, children, arrow = false, ...props }, ref) => (
+  <PopoverPrimitive.Popup
+    ref={ref}
+    className={cn(
+      "origin-[var(--transform-origin)] min-w-[12rem] rounded-md bg-popover p-4 text-text-accent shadow-md outline outline-1 outline-border transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0",
+      className
+    )}
+    {...props}
+  >
+    {arrow && (
+      <PopoverPrimitive.Arrow className="data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180">
+        <ArrowSvg />
+      </PopoverPrimitive.Arrow>
+    )}
+    {children}
+  </PopoverPrimitive.Popup>
+));
 PopoverPopup.displayName = PopoverPrimitive.Popup.displayName;
 
 const PopoverTitle = React.forwardRef<
   React.ComponentRef<typeof PopoverPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Title>
 >(({ className, ...props }, ref) => (
-  <PopoverPrimitive.Title ref={ref} className={cn("", className)} {...props} />
+  <PopoverPrimitive.Title ref={ref} className={cn("text-lg font-semibold leading-none tracking-tight text-text-primary", className)} {...props} />
 ));
 PopoverTitle.displayName = PopoverPrimitive.Title.displayName;
 
@@ -86,7 +80,7 @@ const PopoverDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <PopoverPrimitive.Description
     ref={ref}
-    className={cn("", className)}
+    className={cn("text-sm text-text-muted", className)}
     {...props}
   />
 ));
@@ -110,6 +104,7 @@ function ArrowSvg(props: React.ComponentProps<"svg">) {
 export {
   Popover,
   PopoverTrigger,
+  PopoverPositioner,
   PopoverBackdrop,
   PopoverPopup,
   PopoverTitle,

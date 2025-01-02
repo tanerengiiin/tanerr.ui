@@ -2,9 +2,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import ComponentViewer from "@/components/docs/ComponentViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import CodeViewer from "@/components/docs/CodeViewer";
+import ChecboxToneDemo from "@/components/demo/checkbox/ChecboxToneDemo";
+
 export const metadata = {
   title: "Checbox",
-  breadcrumb: ["Docs", "Checkbox"],
+  breadcrumb: ["Docs", "Components", "Checkbox"],
 };
 
 <ComponentViewer json="/data/components/demo/checkbox/CheckboxDemo.json">
@@ -13,19 +15,31 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`}/>
+    <h6>Create `checkbox.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
-    <CodeViewer className="mt-3" path="./src/components/ui/checkbox.tsx"/>
+    <h6>Copy and paste the following code into the file.</h6>
+    <CodeViewer
+      className="mt-3"
+      path="./src/components/ui/checkbox.tsx"
+    />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
-
 
 ## Usage
 
 <CodeViewer className="mt-3" code={`import { Checkbox } from "@/components/ui/checkbox"`} />
-<CodeViewer className="mt-3" code={`<Checkbox />`} />
+<CodeViewer className="mt-3" code={'<Checkbox />'} />
+
+## Examples
+
+### Using tone prop
+
+<ComponentViewer className="mt-3" json="/data/components/demo/checkbox/ChecboxToneDemo.json">
+  <ChecboxToneDemo />
+</ComponentViewer>

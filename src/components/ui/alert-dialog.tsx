@@ -4,8 +4,6 @@ import * as React from "react";
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui-components/react/alert-dialog";
 
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { VariantProps } from "class-variance-authority";
 
 const AlertDialog = AlertDialogPrimitive.Root;
 
@@ -13,13 +11,15 @@ const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 
 const AlertDialogPortal = AlertDialogPrimitive.Portal;
 
+const AlertDialogClose = AlertDialogPrimitive.Close;
+
 const AlertDialogBackdrop = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Backdrop>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Backdrop>
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Backdrop
     className={cn(
-      "fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[closed]:animate-out data-[closed]:fade-out-0 data-[open]:fade-in-0",
+      "fixed inset-0 z-50 bg-black/40 dark:bg-black/70 transition-all duration-200 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
       className
     )}
     {...props}
@@ -37,7 +37,7 @@ const AlertDialogPopup = React.forwardRef<
     <AlertDialogPrimitive.Popup
       ref={ref}
       className={cn(
-        "fixed left-[50%] top-[calc(50%+1.25rem*var(--nested-dialogs))] scale-[calc(1-0.1*var(--nested-dialogs))] z-50 grid w-full max-w-md translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[open]:animate-in data-[ending-style]:animate-out data-[ending-style]:fade-out-0 data-[open]:fade-in-0 data-[ending-style]:zoom-out-95 data-[open]:zoom-in-95 data-[ending-style]:slide-out-to-left-1/2 data-[ending-style]:slide-out-to-top-[48%] data-[open]:slide-in-from-left-1/2 data-[open]:slide-in-from-top-[48%] sm:rounded-lg data-[has-nested-dialogs]:after:absolute data-[has-nested-dialogs]:after:inset-0 data-[has-nested-dialogs]:after:rounded-[inherit] data-[has-nested-dialogs]:after:bg-black/5",
+        "z-50 fixed top-[calc(50%+1.25rem*var(--nested-dialogs))] left-1/2 -mt-8 w-[420px] max-w-[calc(100vw-3rem)] -translate-x-1/2 -translate-y-1/2 scale-[calc(1-0.1*var(--nested-dialogs))] rounded-lg bg-background p-6 outline outline-1 outline-border transition-all duration-200 data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[has-nested-dialogs]:after:absolute data-[has-nested-dialogs]:after:inset-0 data-[has-nested-dialogs]:after:rounded-[inherit] data-[has-nested-dialogs]:after:bg-black/10 dark:data-[has-nested-dialogs]:after:bg-black/30 data-[starting-style]:scale-90 data-[starting-style]:opacity-0",
         className
       )}
       {...props}
@@ -52,10 +52,7 @@ const AlertDialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Title
     ref={ref}
-    className={cn(
-      "text-lg font-semibold leading-none tracking-tight",
-      className
-    )}
+    className={cn("text-lg font-semibold", className)}
     {...props}
   />
 ));
@@ -67,25 +64,12 @@ const AlertDialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Description
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-sm text-text-secondary", className)}
     {...props}
   />
 ));
 AlertDialogDescription.displayName =
   AlertDialogPrimitive.Description.displayName;
-
-const AlertDialogClose = React.forwardRef<
-  React.ComponentRef<typeof AlertDialogPrimitive.Close>,
-  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Close> &
-    VariantProps<typeof buttonVariants>
->(({ className, variant = "outline", ...props }, ref) => (
-  <AlertDialogPrimitive.Close
-    ref={ref}
-    className={cn(buttonVariants({ variant }), className)}
-    {...props}
-  />
-));
-AlertDialogClose.displayName = AlertDialogPrimitive.Close.displayName;
 
 export {
   AlertDialog,

@@ -2,33 +2,37 @@
 
 import * as React from "react";
 import { Progress as ProgressPrimitive } from "@base-ui-components/react/progress";
-
 import { cn } from "@/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 
-export const progressVariants = cva(
-  "block rounded-full transition-all duration-500",
+const progressVariants = cva(
+  "block rounded-full transition-all duration-300 ease-in-out",
   {
     variants: {
-      variant: {
+      tone: {
         default: "bg-primary",
-        destructive: "bg-destructive",
-        red: "bg-red-500",
-        orange: "bg-orange-500",
-        green: "bg-green-500",
+        success: "bg-success",
+        info: "bg-info",
+        warning: "bg-warning",
+        error: "bg-error",
       },
     },
     defaultVariants: {
-      variant: "default",
+      tone: "default",
     },
   }
 );
 
+export interface ProgressProps
+  extends React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>,
+    VariantProps<typeof progressVariants> {
+  linear?: boolean;
+}
+
 const Progress = React.forwardRef<
   React.ComponentRef<typeof ProgressPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root> &
-    VariantProps<typeof progressVariants>
->(({ className, variant, value, ...props }, ref) => (
+  ProgressProps
+>(({ className, tone, linear, value, ...props }, ref) => (
   <ProgressPrimitive.Root ref={ref} value={value} {...props}>
     <ProgressPrimitive.Track
       className={cn(
@@ -36,8 +40,11 @@ const Progress = React.forwardRef<
         className
       )}
     >
-      <ProgressPrimitive.Indicator
-        className={cn(progressVariants({ variant }))}
+      <ProgressPrimitive.Indicator 
+        className={cn(
+          progressVariants({ tone }),
+          linear && "duration-150 ease-linear"
+        )} 
       />
     </ProgressPrimitive.Track>
   </ProgressPrimitive.Root>

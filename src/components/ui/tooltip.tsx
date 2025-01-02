@@ -12,7 +12,7 @@ const Tooltip = TooltipPrimitive.Root;
 const TooltipPositioner = React.forwardRef<
   React.ComponentRef<typeof TooltipPrimitive.Positioner>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Positioner>
->(({ className, sideOffset = 10, ...props }, ref) => (
+>(({ className, sideOffset = 8, ...props }, ref) => (
   <TooltipPrimitive.Portal>
     <TooltipPrimitive.Positioner
       ref={ref}
@@ -33,7 +33,7 @@ const TooltipPopup = React.forwardRef<
   <TooltipPrimitive.Popup
     ref={ref}
     className={cn(
-      "flex origin-[var(--transform-origin)] border flex-col rounded-md bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md outline-none transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[instant]:duration-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0 ",
+      "flex origin-[var(--transform-origin)] flex-col rounded-md bg-foreground px-2.5 py-1 text-sm text-background shadow-md outline-none transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0 data-[instant]:duration-0 ",
       className
     )}
     {...props}

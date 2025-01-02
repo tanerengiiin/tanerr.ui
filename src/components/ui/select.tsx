@@ -22,7 +22,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-9 min-w-32 items-center justify-between gap-3 rounded-md border pr-3 pl-3.5 text-primary select-none hover:bg-accent focus-visible:outline-none focus-visible:ring-4 transition-[box-shadow,_border,_background] focus-visible:ring-primary/5 focus-visible:border-primary/25 dark:focus-visible:border-primary/40 active:bg-muted data-[popup-open]:bg-muted",
+      "cursor-pointer flex h-9 min-w-32 items-center justify-between gap-3 rounded-md border pr-3 pl-3.5 text-primary select-none hover:bg-muted focus-visible:outline-none focus-visible:ring-4 transition-[box-shadow,_border,_background] focus-visible:ring-primary/5 focus-visible:border-primary/25 dark:focus-visible:border-primary/40 active:bg-muted data-[popup-open]:bg-muted",
       className
     )}
     {...props}
@@ -35,23 +35,50 @@ const SelectTrigger = React.forwardRef<
 ));
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
+const SelectBackdrop = React.forwardRef<
+  React.ComponentRef<typeof SelectPrimitive.Backdrop>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Backdrop>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.Backdrop
+    ref={ref}
+    className={cn(
+      "pointer-events-none fixed inset-0 z-50 bg-black/30 dark:bg-black/60 transition-all duration-100 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
+      className
+    )}
+    {...props}
+  />
+));
+
+SelectBackdrop.displayName = SelectPrimitive.Backdrop.displayName;
+
 const SelectPositioner = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Positioner>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Positioner>
->(({ className, children, sideOffset = 8, ...props }, ref) => (
-  <SelectPrimitive.Portal>
-    <SelectPrimitive.Positioner
-      ref={ref}
-      className={cn("outline-none z-50 data-[open]:animate-in data-[open]:fade-in-0 data-[starting-style]:duration-100 ", className)}
-      sideOffset={sideOffset}
-      {...props}
-    >
-      <SelectScrollUpArrow />
-      {children}
-      <SelectScrollDownArrow />
-    </SelectPrimitive.Positioner>
-  </SelectPrimitive.Portal>
-));
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Positioner> & {
+    backdrop?: boolean;
+  }
+>(
+  (
+    { className, children, sideOffset = 8, backdrop = false, ...props },
+    ref
+  ) => (
+    <SelectPrimitive.Portal>
+      {backdrop && <SelectBackdrop />}
+      <SelectPrimitive.Positioner
+        ref={ref}
+        className={cn(
+          "outline-none z-50",
+          className
+        )}
+        sideOffset={sideOffset}
+        {...props}
+      >
+        <SelectScrollUpArrow />
+        {children}
+        <SelectScrollDownArrow />
+      </SelectPrimitive.Positioner>
+    </SelectPrimitive.Portal>
+  )
+);
 SelectPositioner.displayName = SelectPrimitive.Positioner.displayName;
 
 const SelectScrollUpArrow = React.forwardRef<
@@ -61,7 +88,7 @@ const SelectScrollUpArrow = React.forwardRef<
   <SelectPrimitive.ScrollUpArrow
     ref={ref}
     className={cn(
-      "top-0 left-0 right-0 z-50 rounded-t-md border-b border-accent w-full bg-background text-primary items-center justify-center py-0.5 hidden data-[visible]:flex",
+      "top-0 left-0 right-0 z-50 rounded-t-md border-b w-full bg-background text-primary hidden items-center justify-center py-0.5 data-[visible]:flex",
       className
     )}
     {...props}
@@ -78,7 +105,7 @@ const SelectScrollDownArrow = React.forwardRef<
   <SelectPrimitive.ScrollDownArrow
     ref={ref}
     className={cn(
-      "bottom-0 left-0 right-0 z-50 border-t border-accent rounded-b-md w-full bg-background text-primary items-center justify-center py-0.5 hidden data-[visible]:flex",
+      "bottom-0 left-0 right-0 z-50 border-t rounded-b-md w-full bg-background text-primary items-center justify-center py-0.5 hidden data-[visible]:flex",
       className
     )}
     {...props}
@@ -97,7 +124,7 @@ const SelectPopup = React.forwardRef<
   <SelectPrimitive.Popup
     ref={ref}
     className={cn(
-      "group origin-[var(--transform-origin)] rounded-md bg-background py-1 text-primary shadow-lg outline outline-1 outline-border dark:shadow-none ",
+      "group origin-[var(--transform-origin)] rounded-md bg-background py-1 text-primary shadow-lg outline outline-1 outline-border dark:shadow-none data-[starting-style]:opacity-0 transition-all duration-100",
       className
     )}
     {...props}
@@ -133,7 +160,7 @@ const SelectGroupLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.GroupLabel
     ref={ref}
-    className={cn("pr-2 pl-9 py-1.5 mb-0.5 text-sm text-primary/60", className)}
+    className={cn("pr-2 pl-9 py-1.5 mb-0.5 text-sm text-text-muted", className)}
     {...props}
   />
 ));

@@ -2,10 +2,11 @@ import ComponentViewer from "@/components/docs/ComponentViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import CodeViewer from "@/components/docs/CodeViewer";
 import CheckboxGroupDemo from "@/components/demo/checkbox/CheckboxGroupDemo";
+import CheckboxGroupDemo2 from "@/components/demo/checkbox/CheckboxGroupDemo2";
 
 export const metadata = {
   title: "Checbox Group",
-  breadcrumb: ["Docs", "Checkbox Group"],
+  breadcrumb: ["Docs", "Components", "Checkbox Group"],
 };
 
 <ComponentViewer json="/data/components/demo/checkbox/CheckboxGroupDemo.json">
@@ -14,17 +15,19 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `checkbox-group.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
+    <h6>Copy and paste the following code into the file.</h6>
     <CodeViewer
       className="mt-3"
       path="./src/components/ui/checkbox-group.tsx"
     />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -32,6 +35,28 @@ export const metadata = {
 
 <CodeViewer
   className="mt-3"
-  code={`import { Checkbox } from "@/components/ui/checkbox"`}
+  code={`import { Checkbox } from "@/components/ui/checkbox";
+import { CheckboxGroup } from "@/components/ui/checkbox-group";`}
 />
-<CodeViewer className="mt-3" code={`<Checkbox />`} />
+<CodeViewer
+  className="mt-3"
+  code={`<CheckboxGroup defaultValue={["react"]} aria-label="Technologies">
+    <div className="flex flex-col gap-3">
+      <label className="flex items-center gap-2">
+        <Checkbox name="react" />
+        React
+      </label>
+    </div>
+  </CheckboxGroup>`}
+/>
+
+## Examples
+
+### Using allValues props
+
+<ComponentViewer
+  className="mt-3"
+  json="/data/components/demo/checkbox/CheckboxGroupDemo2.json"
+>
+  <CheckboxGroupDemo2 />
+</ComponentViewer>

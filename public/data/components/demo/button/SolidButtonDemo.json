@@ -1,0 +1,4 @@
+{
+  "filename": "SolidButtonDemo.tsx",
+  "content": "import { Button } from '@/components/ui/button'\n\nexport default function SolidButtonDemo() {\n  return (\n    <div className='flex items-center gap-2'>\n        <Button>Default</Button>\n        <Button variant=\"solid\" tone=\"secondary\">Secondary</Button>\n        <Button variant=\"solid\" tone=\"info\">Info</Button>\n        <Button variant=\"solid\" tone=\"success\">Success</Button>\n        <Button variant=\"solid\" tone=\"warning\">Warning</Button>\n        <Button variant=\"solid\" tone=\"error\">Error</Button>\n    </div>\n  )\n}\n"
+}

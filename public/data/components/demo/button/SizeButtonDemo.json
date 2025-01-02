@@ -1,0 +1,4 @@
+{
+  "filename": "SizeButtonDemo.tsx",
+  "content": "import { Button } from \"@/components/ui/button\";\nimport { Moon } from \"lucide-react\";\n\nexport default function SizeButtonDemo() {\n  return (\n    <div className=\"flex items-center gap-2\">\n      <Button size=\"sm\">Small</Button>\n      <Button>Default</Button>\n      <Button size=\"lg\">Large</Button>\n      <Button size=\"icon\">\n        <Moon />\n      </Button>\n    </div>\n  );\n}\n"
+}

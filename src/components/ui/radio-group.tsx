@@ -30,12 +30,12 @@ const Radio = React.forwardRef<
       ref={ref}
       value={value}
       className={cn(
-        "flex size-4 items-center justify-center rounded-full outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/5 focus-visible:border-primary/25 dark:focus-visible:border-primary/40 data-[checked]:bg-primary border data-[checked]:border-primary transition-all",
+        "flex size-4 border items-center justify-center rounded-full outline-none focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring focus-visible:border-base-300 dark:focus-visible:border-base-600 hover:border-base-300 dark:hover:border-base-600 data-[checked]:bg-primary data-[checked]:border-primary transition-shadow",
         className
       )}
       {...props}
     >
-      <RadioPrimitive.Indicator className="flex before:size-2 before:rounded-full before:bg-primary-foreground data-[unchecked]:hidden transition-all before:transition-all" />
+      <RadioPrimitive.Indicator className="size-2 rounded-full bg-primary-foreground" />
     </RadioPrimitive.Root>
   );
 });

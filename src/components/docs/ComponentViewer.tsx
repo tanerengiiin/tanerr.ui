@@ -79,7 +79,7 @@ const ComponentViewer = React.forwardRef<
           </MotionConfig>
         </Button>
       </div>
-      <div className="mt-2 relative">
+      <div className="not-prose mt-2 relative">
         <CodeViewer
           code={code}
           json={json}

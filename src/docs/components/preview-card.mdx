@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import CodeViewer from "@/components/docs/CodeViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import PreviewCardDemo from "@/components/demo/preview-card/PreviewCardDemo";
+import BackdropPreviewCardDemo from "@/components/demo/preview-card/BackdropPreviewCardDemo";
 
 export const metadata = {
-  title: "Popover",
-  breadcrumb: ["Docs", "Popover"],
+  title: "Preview Card",
+  breadcrumb: ["Docs", "Components", "Preview Card"],
 };
 
 <ComponentViewer json="/data/components/demo/preview-card/PreviewCardDemo.json">
@@ -15,14 +16,16 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `preview-card.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
+    <h6>Copy and paste the following code into the file.</h6>
     <CodeViewer className="mt-3" path="./src/components/ui/preview-card.tsx" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -30,23 +33,32 @@ export const metadata = {
 
 <CodeViewer
   className="mt-3"
-  code={`import { 
-    Dialog, 
-    DialogTrigger, 
-    DialogPopup, 
-    DialogTitle, 
-    DialogDescription 
-} from "@/components/ui/dialog";`}
+  code={`import {
+    PreviewCard,
+    PreviewCardPopup,
+    PreviewCardPositioner,
+    PreviewCardTrigger,
+} from "@/components/ui/preview-card";
+import { Button } from "@/components/ui/button";`}
 />
 <CodeViewer
   className="mt-3"
-  code={`<Dialog>
-    <DialogTrigger render={<Button>Open</Button>}/>
-    <DialogPopup>
-      <DialogTitle>Edit profile</DialogTitle>
-      <DialogDescription>Make changes to your profile here. Click save when you're done.</DialogDescription>
-    </DialogPopup>
-  </Dialog>`}
+  code={`<PreviewCard>
+    <PreviewCardTrigger render={<Button variant={"link"}>hover me</Button>} />
+    <PreviewCardPositioner backdrop>
+      <PreviewCardPopup>
+        <div className="">
+          
+        </div>
+      </PreviewCardPopup>
+    </PreviewCardPositioner>
+  </PreviewCard>`}
 />
 
 ## Examples
+
+### Using backdrop prop
+
+<ComponentViewer className="mt-3" json="/data/components/demo/preview-card/BackdropPreviewCardDemo.json">
+  <BackdropPreviewCardDemo />
+</ComponentViewer>

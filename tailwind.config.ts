@@ -17,9 +17,6 @@ export default {
       },
     },
     extend: {
-      screens: {
-        "force-light": { raw: "(prefers-color-scheme: light)" },
-      },
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-roboto-mono)"],
@@ -56,9 +53,9 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+        error: {
+          DEFAULT: "hsl(var(--error))",
+          foreground: "hsl(var(--error-foreground))",
         },
         success: {
           DEFAULT: "hsl(var(--success))",

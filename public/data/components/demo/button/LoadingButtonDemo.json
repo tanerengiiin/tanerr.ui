@@ -1,0 +1,4 @@
+{
+  "filename": "LoadingButtonDemo.tsx",
+  "content": "import { Button } from \"@/components/ui/button\";\nimport { Loader2 } from \"lucide-react\";\n\nexport default function LoadingButtonDemo() {\n  return (\n    <div className=\"flex items-center gap-4\">\n      <Button loading>\n        <Loader2 className=\"animate-spin\" />\n        Processing\n      </Button>\n      <Button loading variant=\"outline\">\n        <Loader2 className=\"animate-spin\" />\n        Processing\n      </Button>\n      <Button loading variant=\"ghost\">\n        <Loader2 className=\"animate-spin\" />\n        Processing\n      </Button>\n    </div>\n  );\n}\n"
+}

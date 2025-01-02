@@ -7,7 +7,7 @@ import NestedDialogsDemo from "@/components/demo/dialog/NestedDialogsDemo";
 
 export const metadata = {
   title: "Dialog",
-  breadcrumb: ["Docs", "Dialog"],
+  breadcrumb: ["Docs", "Components", "Dialog"],
 };
 
 <ComponentViewer json="/data/components/demo/dialog/DialogDemo.json">
@@ -16,14 +16,19 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `dialog.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
-    <CodeViewer className="mt-3" path="./src/components/ui/dialog.tsx" />
+    <h6>Copy and paste the following code into the file.</h6>
+    <CodeViewer
+      className="mt-3"
+      path="./src/components/ui/dialog.tsx"
+    />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -36,7 +41,8 @@ export const metadata = {
     DialogTrigger, 
     DialogPopup, 
     DialogTitle, 
-    DialogDescription 
+    DialogDescription,
+    DialogClose
 } from "@/components/ui/dialog";`}
 />
 <CodeViewer
@@ -45,7 +51,10 @@ export const metadata = {
     <DialogTrigger render={<Button>Open</Button>}/>
     <DialogPopup>
       <DialogTitle>Edit profile</DialogTitle>
-      <DialogDescription>Make changes to your profile here. Click save when you're done.</DialogDescription>
+      <DialogDescription>
+        Make changes to your profile here.
+      </DialogDescription>
+      <DialogClose render={<Button>Close</Button>}/>
     </DialogPopup>
   </Dialog>`}
 />

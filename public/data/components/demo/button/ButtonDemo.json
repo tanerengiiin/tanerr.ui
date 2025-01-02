@@ -1,0 +1,4 @@
+{
+  "filename": "ButtonDemo.tsx",
+  "content": "import { Button } from \"@/components/ui/button\";\n\nexport default function ButtonDemo() {\n  return (\n    <Button>Button</Button>\n  );\n}\n"
+}

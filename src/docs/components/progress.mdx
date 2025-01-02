@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import CodeViewer from "@/components/docs/CodeViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import ProgressDemo from "@/components/demo/progress/ProgressDemo";
-
+import ProgressToneDemo from "@/components/demo/progress/ProgressToneDemo";
 export const metadata = {
   title: "Progress",
-  breadcrumb: ["Docs", "Progress"],
+  breadcrumb: ["Docs", "Components", "Progress"],
 };
 
 <ComponentViewer json="/data/components/demo/progress/ProgressDemo.json">
@@ -15,14 +15,16 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `progress.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
-    <CodeViewer className="mt-3" path="./src/components/ui/preview-card.tsx" />
+    <h6>Copy and paste the following code into the file.</h6>
+    <CodeViewer className="mt-3" path="./src/components/ui/progress.tsx" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -50,3 +52,11 @@ export const metadata = {
 />
 
 ## Examples
+
+### Using tone prop
+
+You can use linear prop to make the progress bar animate in a linear way.
+
+<ComponentViewer className="mt-3" json="/data/components/demo/progress/ProgressToneDemo.json">
+  <ProgressToneDemo />
+</ComponentViewer>

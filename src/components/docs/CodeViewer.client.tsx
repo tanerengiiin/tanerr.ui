@@ -73,7 +73,7 @@ export default function CodeViewer({
   return (
     <div
       className={cn(
-        "relative mt-10 border border-transparent border-neutral-800 rounded-lg overflow-hidden shadow-md",
+        "not-prose relative mt-10 border border-transparent border-neutral-800 rounded-lg overflow-hidden shadow-md",
         className
       )}
     >

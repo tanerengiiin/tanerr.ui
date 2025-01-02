@@ -15,11 +15,12 @@ const MenuRadioGroup = MenuPrimitive.RadioGroup;
 const MenuPositioner = React.forwardRef<
   React.ComponentRef<typeof MenuPrimitive.Positioner>,
   React.ComponentPropsWithoutRef<typeof MenuPrimitive.Positioner>
->(({ className, ...props }, ref) => (
+>(({ className, sideOffset = 4, ...props }, ref) => (
   <MenuPrimitive.Portal>
     <MenuPrimitive.Positioner
       ref={ref}
-      className={cn("z-50", className)}
+      sideOffset={sideOffset}
+      className={cn("outline-none z-50", className)}
       {...props}
     />
   </MenuPrimitive.Portal>
@@ -35,7 +36,7 @@ const MenuPopup = React.forwardRef<
   <MenuPrimitive.Popup
     ref={ref}
     className={cn(
-      "group/menu-popup origin-[var(--transform-origin)] z-50 min-w-[12rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[open]:animate-in data-[closed]:animate-out data-[closed]:fade-out-0 data-[open]:fade-in-0 data-[closed]:zoom-out-95 data-[open]:zoom-in-95",
+      "group/menu-popup origin-[var(--transform-origin)] min-w-[12rem] rounded-md bg-popover p-1 text-text-accent shadow-md outline outline-1 outline-border transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0",
       className
     )}
     {...(inset ? { "data-inset": "" } : {})}
@@ -53,7 +54,7 @@ const MenuItem = React.forwardRef<
   <MenuPrimitive.Item
     ref={ref}
     className={cn(
-      "group-data-[inset]/menu-popup:pl-8 relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:opacity-60",
+      "group-data-[inset]/menu-popup:pl-8 relative flex items-center cursor-default gap-2 rounded-sm px-2 py-1.5 text-sm select-none outline-none transition-colors data-[highlighted]:bg-muted data-[highlighted]:text-text-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:opacity-60",
       inset && "pl-8",
       className
     )}
@@ -81,7 +82,7 @@ const MenuGroupLabel = React.forwardRef<
   <MenuPrimitive.GroupLabel
     ref={ref}
     className={cn(
-      "group-data-[inset]/menu-popup:pl-8 px-2 py-1.5 text-sm text-primary/60",
+      "group-data-[inset]/menu-popup:pl-8 px-2 py-1.5 text-sm text-text-muted",
       className
     )}
     {...props}
@@ -96,12 +97,12 @@ const MenuRadioItem = React.forwardRef<
   <MenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors data-[checked]:text-text-primary data-[highlighted]:bg-muted data-[highlighted]:text-text-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     )}
     {...props}
   >
-    <MenuPrimitive.RadioItemIndicator className="absolute left-3 top-1/2 -translate-y-1/2 size-2.5 bg-primary/80 rounded-full data-[unchecked]:hidden" />
+    <MenuPrimitive.RadioItemIndicator className="absolute left-3 top-1/2 -translate-y-1/2 size-3 border-[3px] border-text-primary rounded-full transition-[transform,opacity] data-[starting-style]:scale-50 data-[ending-style]:scale-50" />
     {children}
   </MenuPrimitive.RadioItem>
 ));
@@ -114,12 +115,12 @@ const MenuCheckboxItem = React.forwardRef<
   <MenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors data-[highlighted]:bg-muted data-[checked]:text-text-primary data-[highlighted]:text-text-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     )}
     {...props}
   >
-    <MenuPrimitive.CheckboxItemIndicator className="absolute left-2 top-1/2 -translate-y-1/2 data-[unchecked]:hidden [&_svg]:size-4">
+    <MenuPrimitive.CheckboxItemIndicator className="absolute left-2 top-1/2 -translate-y-1/2 transition-[transform,opacity] data-[starting-style]:scale-0 data-[ending-style]:scale-0 [&_svg]:size-4 [&_svg]:text-text-primary">
       <Check />
     </MenuPrimitive.CheckboxItemIndicator>
     {children}
@@ -134,7 +135,7 @@ const MenuSubmenuTrigger = React.forwardRef<
   <MenuPrimitive.SubmenuTrigger
     ref={ref}
     className={cn(
-      "group-data-[inset]/menu-popup:pl-8 flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 transition-colors text-sm outline-none data-[highlighted]:bg-accent data-[popup-open]:bg-accent data-[open]:bg-accent [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:opacity-60",
+      "group-data-[inset]/menu-popup:pl-8 flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 transition-colors text-sm outline-none data-[highlighted]:bg-muted data-[highlighted]:text-text-primary data-[popup-open]:bg-muted data-[popup-open]:text-text-primary [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:opacity-60",
       className
     )}
     {...props}

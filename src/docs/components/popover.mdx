@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import CodeViewer from "@/components/docs/CodeViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import PopoverDemo from "@/components/demo/popover/PopoverDemo";
-
+import BackdropPopoverDemo from "@/components/demo/popover/BackdropPopoverDemo";
 export const metadata = {
   title: "Popover",
-  breadcrumb: ["Docs", "Popover"],
+  breadcrumb: ["Docs", "Components", "Popover"],
 };
 
 <ComponentViewer json="/data/components/demo/popover/PopoverDemo.json">
@@ -15,14 +15,16 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `popover.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
-    <CodeViewer className="mt-3" path="./src/components/ui/dialog.tsx" />
+    <h6>Copy and paste the following code into the file.</h6>
+    <CodeViewer className="mt-3" path="./src/components/ui/popover.tsx" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -30,23 +32,37 @@ export const metadata = {
 
 <CodeViewer
   className="mt-3"
-  code={`import { 
-    Dialog, 
-    DialogTrigger, 
-    DialogPopup, 
-    DialogTitle, 
-    DialogDescription 
-} from "@/components/ui/dialog";`}
+  code={`import {
+    Popover,
+    PopoverPopup,
+    PopoverPositioner,
+    PopoverTrigger,
+    PopoverTitle,
+    PopoverDescription,
+} from "@/components/ui/popover";`}
 />
 <CodeViewer
   className="mt-3"
-  code={`<Dialog>
-    <DialogTrigger render={<Button>Open</Button>}/>
-    <DialogPopup>
-      <DialogTitle>Edit profile</DialogTitle>
-      <DialogDescription>Make changes to your profile here. Click save when you're done.</DialogDescription>
-    </DialogPopup>
-  </Dialog>`}
+  code={`<Popover>
+    <PopoverTrigger
+      render={<Button variant="outline">Open popover</Button>}
+    />
+    <PopoverPositioner>
+      <PopoverPopup className="w-80">
+        <PopoverTitle>Dimensions</PopoverTitle>
+        <PopoverDescription className="mt-1">
+          Set the dimensions for the layer.
+        </PopoverDescription>
+        <div className="mt-4"></div>
+      </PopoverPopup>
+    </PopoverPositioner>
+  </Popover>`}
 />
 
 ## Examples
+
+### Using backdrop prop
+
+<ComponentViewer className="mt-3" json="/data/components/demo/popover/BackdropPopoverDemo.json">
+  <BackdropPopoverDemo />
+</ComponentViewer>

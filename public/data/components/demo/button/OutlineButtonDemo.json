@@ -1,0 +1,4 @@
+{
+  "filename": "OutlineButtonDemo.tsx",
+  "content": "import { Button } from '@/components/ui/button'\nimport React from 'react'\n\nexport default function OutlineButtonDemo() {\n  return (\n    <div className='flex items-center gap-2'>\n        <Button variant=\"outline\" tone=\"primary\">Primary</Button>\n        <Button variant=\"outline\">Default</Button>\n        <Button variant=\"outline\" tone=\"info\">Info</Button>\n        <Button variant=\"outline\" tone=\"success\">Success</Button>\n        <Button variant=\"outline\" tone=\"warning\">Warning</Button>\n        <Button variant=\"outline\" tone=\"error\">Error</Button>\n    </div>\n  )\n}\n\n"
+}

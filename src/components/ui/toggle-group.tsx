@@ -5,15 +5,15 @@ import { ToggleGroup as ToggleGroupPrimitive } from "@base-ui-components/react/t
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const toggleGroupVariants = cva("flex items-center justify-center gap-1", {
+const toggleGroupVariants = cva("group/toggle-group flex items-center justify-center gap-0.5", {
   variants: {
     variant: {
-      default: "",
-      outline: "rounded-lg border p-0.5",
+      default: "rounded-lg border p-0.5",
+      ghost: "border-none",
     },
-    color: {
+    tone: {
       default: "border-border",
-      destructive: "border-destructive",
+      error: "border-error",
       success: "border-success",
       info: "border-info",
       warning: "border-warning",
@@ -21,7 +21,7 @@ const toggleGroupVariants = cva("flex items-center justify-center gap-1", {
   },
   defaultVariants: {
     variant: "default",
-    color: "default",
+    tone: "default",
   },
 });
 
@@ -29,10 +29,11 @@ const ToggleGroup = React.forwardRef<
   React.ComponentRef<typeof ToggleGroupPrimitive>,
   React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive> &
     VariantProps<typeof toggleGroupVariants>
->(({ className, variant, color, ...props }, ref) => (
+>(({ className, variant = "default", tone, ...props }, ref) => (
   <ToggleGroupPrimitive
     ref={ref}
-    className={cn(toggleGroupVariants({ variant, color, className }))}
+    data-variant={variant}
+    className={cn(toggleGroupVariants({ variant, tone, className }))}
     {...props}
   />
 ));

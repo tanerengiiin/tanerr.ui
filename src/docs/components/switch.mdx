@@ -2,9 +2,13 @@ import ComponentViewer from "@/components/docs/ComponentViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import CodeViewer from "@/components/docs/CodeViewer";
 import { Switch } from "@/components/ui/switch";
+import SizeSwitchDemo from "@/components/demo/switch/SizeSwitchDemo";
+import ToneSwitchDemo from "@/components/demo/switch/ToneSwitchDemo";
+import LabelSwitchDemo from "@/components/demo/switch/LabelSwitchDemo";
+
 export const metadata = {
   title: "Switch",
-  breadcrumb: ["Docs", "Switch"],
+  breadcrumb: ["Docs", "Components", "Switch"],
 };
 
 <ComponentViewer json="/data/components/demo/switch/SwitchDemo.json">
@@ -13,14 +17,16 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `switch.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
+    <h6>Copy and paste the following code into the file.</h6>
     <CodeViewer className="mt-3" path="./src/components/ui/switch.tsx" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -31,3 +37,23 @@ export const metadata = {
   code={`import { Switch } from "@/components/ui/switch"`}
 />
 <CodeViewer className="mt-3" code={`<Switch />`} />
+
+## Examples
+
+### Using size prop
+
+<ComponentViewer className="mt-3" json="/data/components/demo/switch/SizeSwitchDemo.json">
+  <SizeSwitchDemo />
+</ComponentViewer>
+
+### Using tone prop
+
+<ComponentViewer className="mt-3" json="/data/components/demo/switch/ToneSwitchDemo.json">
+  <ToneSwitchDemo />
+</ComponentViewer>
+
+### With label
+
+<ComponentViewer className="mt-3" json="/data/components/demo/switch/LabelSwitchDemo.json">
+  <LabelSwitchDemo />
+</ComponentViewer>

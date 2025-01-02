@@ -33,7 +33,7 @@ export default async function Page({
           <div
             key={index}
             className={cn(
-              "flex items-center text-text-accent",
+              "flex items-center text-text-muted",
               index === metadata.breadcrumb.length - 1 && "text-text-primary"
             )}
           >
@@ -73,7 +73,7 @@ export default async function Page({
           />
         </Link>
       </div>
-      <Typography className="mt-12 h-full">
+      <Typography className="mt-12 pb-24 h-full">
         <Content />
       </Typography>
     </div>

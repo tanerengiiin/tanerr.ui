@@ -28,7 +28,7 @@ export default function MenuDemo() {
       <MenuTrigger
         render={
           <Button variant={"outline"}>
-            Song <ChevronDownIcon />
+            Open Menu <ChevronDownIcon />
           </Button>
         }
       />

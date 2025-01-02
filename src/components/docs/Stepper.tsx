@@ -50,7 +50,7 @@ const Step = React.forwardRef<HTMLDivElement, StepProps>(
             <div className="flex-1 bg-border/60 dark:bg-border w-px"></div>
           )}
         </div>
-        <div className="flex-1 pb-8">
+        <div className={cn("flex-1 pb-8 mt-0.5", Number(stepNumber) === totalSteps && "pb-0")}>
           <Typography>{children}</Typography>
         </div>
       </div>

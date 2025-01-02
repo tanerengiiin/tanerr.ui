@@ -1,4 +1,4 @@
 {
   "filename": "NumberFieldDemo.tsx",
-  "content": "import { NumberField, NumberFieldGroup, NumberFieldInput } from \"@/components/ui/number-field\";\n\nexport default function NumberFieldDemo() {\n  return (\n    <NumberField>\n        <NumberFieldGroup>\n            <NumberFieldInput/>\n        </NumberFieldGroup>\n    </NumberField>\n  );\n}"
+  "content": "import { NumberField,  NumberFieldInput, NumberFieldScrubArea } from \"@/components/ui/number-field\";\n\nexport default function NumberFieldDemo() {\n  return (\n    <NumberField defaultValue={8}>\n        <NumberFieldScrubArea>\n            <label className=\"font-medium text-sm\">Amount</label>\n        </NumberFieldScrubArea>\n        <NumberFieldInput className=\"w-40\"/>\n    </NumberField>\n  );\n}"
 }

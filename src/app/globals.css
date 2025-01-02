@@ -2,13 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  color: var(--text-primary);
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-text-primary;
   }
 
   :root {
@@ -28,28 +32,28 @@
     --secondary-foreground: 0 0% 9%; /* neutral-900 */
     --muted: 0 0% 96%; /* neutral-100 */
     --muted-foreground: 0 0% 45%; /* neutral-500 */
-    --accent: 0 0% 96%; /* neutral-100 */
-    --accent-foreground: 0 0% 9%; /* neutral-900 */
+    --accent: 0 0% 90%; /* neutral-200 */
+    --accent-foreground: 0 0% 4%; /* neutral-900 */
 
-    --destructive: 0 85% 63%;
-    --destructive-foreground: 0 0% 96%;
-    --success: 142 71% 45%;
-    --success-foreground: 138 76% 97%;
-    --info: 217 91% 60%;
-    --info-foreground: 214 100% 97%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 48 100% 96%;
+    --error: 0 84% 60%;           /* red-500 */
+    --error-foreground: 0 86% 97%; /* red-50 */
+    --success: 156 92% 41%;       
+    --success-foreground: 138 76% 97%; /* green-50 */
+    --info: 219 78% 50%;          
+    --info-foreground: 220 100% 95%; 
+    --warning: 38 92% 50%;        /* amber-500 */
+    --warning-foreground: 48 96% 97%; /* amber-50 */
 
     --border: 0 0% 90%; /* neutral-200 */
     --input: 0 0% 90%; /* neutral-200 */
-    --ring: 0 0% 9%; /* neutral-900 */
+    --ring: 0 0% 9% / 0.075; /* neutral-900/10 */
 
     --radius: 0.5rem;
 
-    --text-primary: 0 0% 9%; /* neutral-900 */
+    --text-primary: 0 0% 4%; /* neutral-950 */
     --text-secondary: 0 0% 32%; /* neutral-600 */
-    --text-accent: 0 0% 45%; /* neutral-500 */
-    --text-muted: 0 0% 64%; /* neutral-400 */
+    --text-accent: 0 0% 25%; /* neutral-700 */
+    --text-muted: 0 0% 45%; /* neutral-500 */
     --text-highlight: 0 0% 4%; /* neutral-950 */
 
     --base-0: 0 0% 100%; /* #FFFFFF */
@@ -71,7 +75,7 @@
 
   .dark {
     --background: 0 0% 4%; /* neutral-950 */
-    --foreground: 0 0% 98%; /* neutral-50 */
+    --foreground: 0 0% 100%; /* white */
     --card: 0 0% 4%; /* neutral-950 */
     --card-foreground: 0 0% 98%; /* neutral-50 */
     --popover: 0 0% 4%; /* neutral-950 */
@@ -82,28 +86,28 @@
     --secondary-foreground: 0 0% 98%; /* neutral-50 */
     --muted: 0 0% 15%; /* neutral-800 */
     --muted-foreground: 0 0% 64%; /* neutral-400 */
-    --accent: 0 0% 15%; /* neutral-800 */
+    --accent: 0 0% 25%; /* neutral-700 */
     --accent-foreground: 0 0% 98%; /* neutral-50 */
 
-    --destructive: 0 85% 63%;
-    --destructive-foreground: 0 0% 96%;
-    --success: 142 71% 45%;
-    --success-foreground: 138 76% 97%;
-    --info: 217 91% 60%;
-    --info-foreground: 214 100% 97%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 48 100% 96%;
+    --error: 0 84% 60%;        /* red-600 */
+    --error-foreground: 0 86% 97%; /* red-50 */
+    --success: 156 92% 41%;       
+    --success-foreground: 138 76% 97%; /* green-50 */
+    --info: 219 78% 50%;          
+    --info-foreground: 220 100% 95%; 
+    --warning: 38 92% 50%;        /* amber-500 */
+    --warning-foreground: 48 96% 97%; /* amber-50 */
 
     --border: 0 0% 15%; /* neutral-800 */
     --input: 0 0% 15%; /* neutral-800 */
-    --ring: 0 0% 83%; /* neutral-300 */
+    --ring: 0 0% 98% / 0.1; /* neutral-50/15 */
 
     --radius: 0.5rem;
 
-    --text-primary: 0 0% 98%; /* neutral-50 */
+    --text-primary: 0 0% 100%; /* white */
     --text-secondary: 0 0% 64%; /* neutral-400 */
-    --text-accent: 0 0% 45%; /* neutral-500 */
-    --text-muted: 0 0% 32%; /* neutral-600 */
+    --text-accent: 0 0% 83%; /* neutral-300 */
+    --text-muted: 0 0% 45%; /* neutral-500 */
     --text-highlight: 0 0% 100%; /* #FFFFFF */
   }
 }

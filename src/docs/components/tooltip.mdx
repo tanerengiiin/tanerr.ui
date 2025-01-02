@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import CodeViewer from "@/components/docs/CodeViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import TooltipDemo from "@/components/demo/tooltip/TooltipDemo";
+import AdvancedTooltipDemo from "@/components/demo/tooltip/AdvancedTooltipDemo";
 
 export const metadata = {
   title: "Tooltip",
-  breadcrumb: ["Docs", "Tooltip"],
+  breadcrumb: ["Docs", "Components", "Tooltip"],
 };
 
 <ComponentViewer json="/data/components/demo/tooltip/TooltipDemo.json">
@@ -15,38 +16,53 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `tooltip.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
+    <h6>Copy and paste the following code into the file.</h6>
     <CodeViewer className="mt-3" path="./src/components/ui/tooltip.tsx" />
   </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
 </Stepper>
-
 ## Usage
 
 <CodeViewer
   className="mt-3"
-  code={`import { 
-    Dialog, 
-    DialogTrigger, 
-    DialogPopup, 
-    DialogTitle, 
-    DialogDescription 
-} from "@/components/ui/dialog";`}
+  code={`import {
+    Tooltip,
+    TooltipPopup,
+    TooltipPositioner,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";`}
 />
 <CodeViewer
   className="mt-3"
-  code={`<Dialog>
-    <DialogTrigger render={<Button>Open</Button>}/>
-    <DialogPopup>
-      <DialogTitle>Edit profile</DialogTitle>
-      <DialogDescription>Make changes to your profile here. Click save when you're done.</DialogDescription>
-    </DialogPopup>
-  </Dialog>`}
+  code={`<TooltipProvider>
+    <Tooltip>
+        <TooltipTrigger
+          render={
+            <Button variant={"ghost"} size={"icon"}>
+              <Bold />
+            </Button>
+          }
+        />
+        <TooltipPositioner>
+          <TooltipPopup>
+            <p>Bold</p>
+          </TooltipPopup>
+        </TooltipPositioner>
+      </Tooltip>
+  </TooltipProvider>`}
 />
 
 ## Examples
+
+
+<ComponentViewer className="mt-3" json="/data/components/demo/tooltip/AdvancedTooltipDemo.json">
+  <AdvancedTooltipDemo />
+</ComponentViewer>

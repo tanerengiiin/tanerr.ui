@@ -4,7 +4,20 @@ import { Accordion as AccordionPrimitive } from "@base-ui-components/react/accor
 import { cn } from "@/lib/utils";
 import { Plus } from "lucide-react";
 
-const Accordion = AccordionPrimitive.Root;
+const Accordion = React.forwardRef<
+  React.ComponentRef<typeof AccordionPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> & {
+    inset?: boolean;
+  }
+>(({ className, inset = false, ...props }, ref) => (
+  <AccordionPrimitive.Root
+    ref={ref}
+    {...(inset && { "data-inset": '' })}
+    className={cn("group/accordion", className)}
+    {...props}
+  />
+));
+Accordion.displayName = AccordionPrimitive.Root.displayName;
 
 const AccordionItem = React.forwardRef<
   React.ComponentRef<typeof AccordionPrimitive.Item>,
@@ -13,7 +26,7 @@ const AccordionItem = React.forwardRef<
   <AccordionPrimitive.Item
     ref={ref}
     className={cn(
-      "border rounded-md data-[open]:bg-base-50 dark:data-[open]:bg-base-900 hover:bg-accent transition-colors data-[open]:pb-1.5",
+      "rounded-md border data-[open]:bg-primary-foreground hover:bg-secondary transition-colors",
       className
     )}
     {...props}
@@ -29,13 +42,13 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "group/accordion-trigger flex w-full cursor-pointer items-center gap-2 px-3 py-2.5 text-sm font-medium text-left text-primary [&_svg]:size-4 [&_svg]:opacity-60 rounded-md focus-visible:outline-none focus-visible:ring-4 transition-[box-shadow,_border] focus-visible:ring-primary/5 ",
+        "group/accordion-trigger flex w-full gap-2 px-3 py-2.5 rounded-md cursor-pointer items-center text-sm font-medium text-left text-primary transition-[box-shadow,_border] [&_svg]:size-4 [&_svg]:opacity-60 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/5",
         className
       )}
       {...props}
     >
       {children}
-      <Plus className="ml-auto will-change-transform !opacity-100 shrink-0 transition-transform duration-200 group-data-[panel-open]/accordion-trigger:scale-[1.15] group-data-[panel-open]/accordion-trigger:rotate-45" />
+      <Plus className="ml-auto shrink-0 !opacity-100 will-change-transform transition-transform duration-200 group-data-[panel-open]/accordion-trigger:scale-[1.15] group-data-[panel-open]/accordion-trigger:rotate-45" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));
@@ -50,7 +63,7 @@ const AccordionPanel = React.forwardRef<
   <AccordionPrimitive.Panel
     ref={ref}
     className={cn(
-      "text-text-secondary text-sm h-[var(--accordion-panel-height)] px-3 overflow-hidden transition-[height] ease-out data-[ending-style]:h-0 data-[starting-style]:h-0",
+      "overflow-hidden h-[calc(var(--accordion-panel-height)+0.625rem)] px-3 text-sm text-text-secondary transition-[height] duration-200 ease-out group-data-[inset]/accordion:pl-9 data-[ending-style]:h-0 data-[starting-style]:h-0",
       inset && "pl-9",
       className
     )}

@@ -1,0 +1,4 @@
+{
+  "filename": "WithLabelInputDemo.tsx",
+  "content": "import {\n  Field,\n  FieldControl,\n  FieldDescription,\n  FieldLabel,\n} from \"@/components/ui/field\";\nimport { Input } from \"@/components/ui/input\";\n\nexport default function WithLabelInputDemo() {\n  return (\n    <Field>\n      <FieldLabel>Email</FieldLabel>\n      <FieldControl render={<Input placeholder=\"Email\" />} />\n      <FieldDescription>Please enter a valid email address.</FieldDescription>\n    </Field>\n  );\n}\n"
+}

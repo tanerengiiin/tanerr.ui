@@ -2,30 +2,99 @@ import { Button } from "@/components/ui/button";
 import ComponentViewer from "@/components/docs/ComponentViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import CodeViewer from "@/components/docs/CodeViewer";
+import ButtonDemo from "@/components/demo/button/ButtonDemo";
+import SolidButtonDemo from "@/components/demo/button/SolidButtonDemo";
+import OutlineButtonDemo from "@/components/demo/button/OutlineButtonDemo";
+import GhostButtonDemo from "@/components/demo/button/GhostButtonDemo";
+import LinkDemo from "@/components/demo/button/LinkDemo";
+import SizeButtonDemo from "@/components/demo/button/SizeButtonDemo";
+import IconButtonDemo from "@/components/demo/button/IconButtonDemo";
+import WithIconDemo from "@/components/demo/button/WithIconDemo";
+import LoadingButtonDemo from "@/components/demo/button/LoadingButtonDemo";
+
 export const metadata = {
   title: "Button",
-  breadcrumb: ["Docs", "Button"],
+  breadcrumb: ["Docs", "Components", "Button"],
 };
 
-<ComponentViewer
-  code={`import { Button } from "@/components/ui/button"
- 
-export function ButtonDemo() {
-    return <Button>Button</Button>
-}`}
->
-  <Button>Button</Button>
+<ComponentViewer json="/data/components/demo/button/ButtonDemo.json">
+  <ButtonDemo />
 </ComponentViewer>
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`}/>
+    <h6>Create `button.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
-    <CodeViewer className="mt-3" path="./src/components/ui/button.tsx"/>
+    <h6>Copy and paste the following code into the file.</h6>
+    <CodeViewer className="mt-3" path="./src/components/ui/button.tsx" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
+
+## Usage
+
+<CodeViewer
+  className="mt-3"
+  code={`import { Button } from "@/components/ui/button";`}
+/>
+<CodeViewer
+  className="mt-3"
+  code={`<Button>Button</Button>`}
+/>
+
+## Examples 
+
+### Solid 
+
+<ComponentViewer className="mt-6" json="/data/components/demo/button/SolidButtonDemo.json">
+  <SolidButtonDemo />
+</ComponentViewer>  
+
+### Outline 
+
+<ComponentViewer className="mt-6" json="/data/components/demo/button/OutlineButtonDemo.json">
+  <OutlineButtonDemo />
+</ComponentViewer>    
+
+### Ghost
+
+<ComponentViewer className="mt-6" json="/data/components/demo/button/GhostButtonDemo.json">
+  <GhostButtonDemo />
+</ComponentViewer>    
+
+### Link
+
+<ComponentViewer className="mt-6" json="/data/components/demo/button/LinkDemo.json">
+  <LinkDemo />
+</ComponentViewer>    
+
+### Size
+
+<ComponentViewer className="mt-6" json="/data/components/demo/button/SizeButtonDemo.json">
+  <SizeButtonDemo />
+</ComponentViewer>      
+
+### Icon
+
+<ComponentViewer className="mt-6" json="/data/components/demo/button/IconButtonDemo.json">
+  <IconButtonDemo />
+</ComponentViewer>        
+
+### With Icon
+
+<ComponentViewer className="mt-6" json="/data/components/demo/button/WithIconDemo.json">
+  <WithIconDemo />
+</ComponentViewer>        
+
+### Loading
+
+The `loading` prop prevents click events while keeping the button visually prominent, unlike `disabled` which makes it too faint. Use it to indicate processing states.
+
+<ComponentViewer className="mt-6" json="/data/components/demo/button/LoadingButtonDemo.json">
+  <LoadingButtonDemo />
+</ComponentViewer>        

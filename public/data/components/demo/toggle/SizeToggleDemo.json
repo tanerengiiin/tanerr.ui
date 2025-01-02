@@ -1,0 +1,4 @@
+{
+  "filename": "SizeToggleDemo.tsx",
+  "content": "import { Toggle } from \"@/components/ui/toggle\";\nimport { Heart, ThumbsUp } from \"lucide-react\";\n\nexport default function SizeToggleDemo() {\n  return (\n    <div className=\"flex flex-col items-center gap-6\">\n      <div className=\"flex items-center gap-2\">\n        <Toggle size=\"sm\">\n          <ThumbsUp />\n          Small\n        </Toggle>\n\n        <Toggle size=\"default\">\n          <ThumbsUp />\n          Default\n        </Toggle>\n\n        <Toggle size=\"lg\">\n          <ThumbsUp />\n          Large\n        </Toggle>\n      </div>\n      <div className=\"flex items-center gap-2\">\n        <Toggle size=\"sm\">\n          <Heart />\n        </Toggle>\n\n        <Toggle size=\"default\">\n          <Heart />\n        </Toggle>\n\n        <Toggle size=\"lg\">\n          <Heart />\n        </Toggle>\n      </div>\n    </div>\n  );\n}\n"
+}

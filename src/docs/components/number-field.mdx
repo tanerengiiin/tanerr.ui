@@ -5,7 +5,7 @@ import NumberFieldDemo from "@/components/demo/number-field/NumberFieldDemo";
 
 export const metadata = {
   title: "Number Field",
-  breadcrumb: ["Docs", "Number Field"],
+  breadcrumb: ["Docs", "Components", "Number Field"],
 };
 
 <ComponentViewer json="/data/components/demo/number-field/NumberFieldDemo.json">
@@ -14,14 +14,16 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `number-field.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
+    <h6>Copy and paste the following code into the file.</h6>
     <CodeViewer className="mt-3" path="./src/components/ui/number-field.tsx" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -29,6 +31,15 @@ export const metadata = {
 
 <CodeViewer
   className="mt-3"
-  code={`import { Switch } from "@/components/ui/switch"`}
+  code={`import {
+    NumberField, 
+    NumberFieldInput, 
+    NumberFieldScrubArea
+  } from "@/components/ui/number-field";`}
 />
-<CodeViewer className="mt-3" code={`<Switch />`} />
+<CodeViewer className="mt-3" code={`<NumberField>
+      <NumberFieldScrubArea>
+          <label className="font-medium text-sm">Amount</label>
+      </NumberFieldScrubArea>
+      <NumberFieldInput className="w-40"/>
+  </NumberField>`} />

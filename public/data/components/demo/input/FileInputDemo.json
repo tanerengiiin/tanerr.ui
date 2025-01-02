@@ -1,0 +1,4 @@
+{
+  "filename": "FileInputDemo.tsx",
+  "content": "import { Input } from \"@/components/ui/input\";\nexport default function FileInputDemo() {\n  return (\n    <Input type=\"file\" className=\"w-64\" />\n  )\n}\n"
+}

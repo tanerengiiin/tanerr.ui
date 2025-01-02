@@ -26,7 +26,7 @@ const FieldLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <FieldPrimitive.Label
     ref={ref}
-    className={cn("font-medium text-sm text-primary", className)}
+    className={cn("font-medium text-sm text-text-primary", className)}
     {...props}
   />
 ));
@@ -51,7 +51,7 @@ const FieldDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <FieldPrimitive.Description
     ref={ref}
-    className={cn("text-sm text-text-accent", className)}
+    className={cn("text-sm text-text-muted", className)}
     {...props}
   />
 ));

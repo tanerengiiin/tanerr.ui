@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import CodeViewer from "@/components/docs/CodeViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import AccordionDemo from "@/components/demo/accordion/AccordionDemo";
+import InsetAccordionDemo from "@/components/demo/accordion/InsetAccordionDemo";
 
 export const metadata = {
   title: "Accordion",
-  breadcrumb: ["Docs", "Accordion"],
+  breadcrumb: ["Docs","Components","Accordion"],
 };
 
 <ComponentViewer json="/data/components/demo/accordion/AccordionDemo.json">
@@ -15,14 +16,16 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create <code className="text-primary">accordion.tsx</code> file in your <code className="text-primary">components/ui/</code> directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
+    <h6>Copy and paste the following code into the file.</h6>
     <CodeViewer className="mt-3" path="./src/components/ui/accordion.tsx" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -30,23 +33,32 @@ export const metadata = {
 
 <CodeViewer
   className="mt-3"
-  code={`import { 
-    Dialog, 
-    DialogTrigger, 
-    DialogPopup, 
-    DialogTitle, 
-    DialogDescription 
-} from "@/components/ui/dialog";`}
+  code={`import {
+    Accordion,
+    AccordionItem,
+    AccordionPanel,
+    AccordionTrigger,
+} from "@/components/ui/accordion";`}
 />
 <CodeViewer
   className="mt-3"
-  code={`<Dialog>
-    <DialogTrigger render={<Button>Open</Button>}/>
-    <DialogPopup>
-      <DialogTitle>Edit profile</DialogTitle>
-      <DialogDescription>Make changes to your profile here. Click save when you're done.</DialogDescription>
-    </DialogPopup>
-  </Dialog>`}
+  code={`<Accordion>
+    <AccordionItem>
+      <AccordionTrigger>
+        What payment methods do you accept?
+      </AccordionTrigger>
+      <AccordionPanel>
+        We accept all major credit and debit cards.
+      </AccordionPanel>
+    </AccordionItem>
+  </Accordion>`}
 />
 
 ## Examples
+
+### Using inset prop
+Note: Adding <code>inset</code> prop to <code>Accordion</code> affects all child <code>AccordionItem</code>s. See the example at the beginning of this page.
+
+<ComponentViewer className="mt-6" json="/data/components/demo/accordion/InsetAccordionDemo.json">
+  <InsetAccordionDemo />
+</ComponentViewer>

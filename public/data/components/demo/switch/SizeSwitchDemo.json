@@ -1,0 +1,4 @@
+{
+  "filename": "SizeSwitchDemo.tsx",
+  "content": "import { Switch } from \"@/components/ui/switch\";\n\nexport default function SizeSwitchDemo() {\n  return (\n    <div className=\"flex flex-col items-center gap-4\">\n      <Switch size=\"sm\" defaultChecked />\n      <Switch size=\"md\" defaultChecked />\n      <Switch size=\"lg\" defaultChecked />\n    </div>\n  );\n}\n\n"
+}

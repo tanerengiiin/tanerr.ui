@@ -1,0 +1,4 @@
+{
+  "filename": "ChecboxToneDemo.tsx",
+  "content": "import { Checkbox } from '@/components/ui/checkbox'\n\nexport default function ChecboxToneDemo() {\n  return (\n    <div className='flex items-center justify-center gap-2'>\n        <Checkbox tone=\"default\" defaultChecked/>\n        <Checkbox tone=\"success\" defaultChecked/>\n        <Checkbox tone=\"info\" defaultChecked/>\n        <Checkbox tone=\"warning\" defaultChecked/>\n        <Checkbox tone=\"error\" defaultChecked/>  \n    </div>\n  )\n}\n"
+}

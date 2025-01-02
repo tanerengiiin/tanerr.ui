@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Construction } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,12 +34,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="w-full h-9 bg-amber-500 flex items-center justify-center">
-            <span className="text-sm font-medium text-base-800 inline-flex items-center gap-2">
-              <Construction size={16}/>
-              Under construction!
-            </span>
-          </div>
           {children}
         </ThemeProvider>
       </body>

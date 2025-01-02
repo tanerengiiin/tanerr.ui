@@ -1,0 +1,4 @@
+{
+  "filename": "ToneSwitchDemo.tsx",
+  "content": "import { Switch } from \"@/components/ui/switch\";\n\nexport default function ToneSwitchDemo() {\n  return (\n    <div className=\"flex flex-col items-center gap-4\">\n      <Switch tone=\"success\" defaultChecked />\n      <Switch tone=\"info\" defaultChecked />\n      <Switch tone=\"warning\" defaultChecked />\n      <Switch tone=\"error\" defaultChecked />\n    </div>\n  );\n}\n"
+}

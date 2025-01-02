@@ -3,28 +3,28 @@ import { Button } from "@/components/ui/button";
 import CodeViewer from "@/components/docs/CodeViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import SelectDemo from "@/components/demo/select/SelectDemo";
-
+import BackdropSelectDemo from "@/components/demo/select/BackdropSelectDemo";
 export const metadata = {
   title: "Select",
-  breadcrumb: ["Docs", "Select"],
+  breadcrumb: ["Docs", "Components", "Select"],
 };
-
 
 <ComponentViewer json="/data/components/demo/select/SelectDemo.json">
   <SelectDemo />
 </ComponentViewer>
 
-
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `select.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
+    <h6>Copy and paste the following code into the file.</h6>
     <CodeViewer className="mt-3" path="./src/components/ui/select.tsx" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -32,23 +32,46 @@ export const metadata = {
 
 <CodeViewer
   className="mt-3"
-  code={`import { 
-    Dialog, 
-    DialogTrigger, 
-    DialogPopup, 
-    DialogTitle, 
-    DialogDescription 
-} from "@/components/ui/dialog";`}
+  code={`import {
+    Select,
+    SelectGroup,
+    SelectGroupLabel,
+    SelectItem,
+    SelectPopup,
+    SelectPositioner,
+    SelectSeparator,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";`}
 />
 <CodeViewer
   className="mt-3"
-  code={`<Dialog>
-    <DialogTrigger render={<Button>Open</Button>}/>
-    <DialogPopup>
-      <DialogTitle>Edit profile</DialogTitle>
-      <DialogDescription>Make changes to your profile here. Click save when you're done.</DialogDescription>
-    </DialogPopup>
-  </Dialog>`}
+  code={`<Select>
+    <SelectTrigger className="w-[180px]">
+      <SelectValue placeholder="Select a fruit" />
+    </SelectTrigger>
+    <SelectPositioner>
+      <SelectPopup>
+        <SelectItem value="apple">Apple</SelectItem>
+        <SelectSeparator />
+        <SelectGroup>
+          <SelectGroupLabel>Exotic Fruits</SelectGroupLabel>
+          <SelectItem value="mango">Mango</SelectItem>
+        </SelectGroup>
+        <SelectSeparator />
+        <SelectGroup>
+          <SelectGroupLabel>Citrus Fruits</SelectGroupLabel>
+          <SelectItem value="lemon">Lemon</SelectItem>
+        </SelectGroup>
+      </SelectPopup>
+    </SelectPositioner>
+  </Select>`}
 />
 
 ## Examples
+
+### Using backdrop prop
+
+<ComponentViewer className="mt-3" json="/data/components/demo/select/BackdropSelectDemo.json">
+  <BackdropSelectDemo />
+</ComponentViewer>

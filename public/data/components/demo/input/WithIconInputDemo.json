@@ -1,0 +1,4 @@
+{
+  "filename": "WithIconInputDemo.tsx",
+  "content": "import { Input } from \"@/components/ui/input\";\nimport { Search } from \"lucide-react\";\n\nexport default function WithIconInputDemo() {\n  return <Input icon={<Search />} className=\"w-64\" type=\"search\" placeholder=\"Search\" />;\n}\n"
+}

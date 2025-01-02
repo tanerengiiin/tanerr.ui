@@ -16,7 +16,7 @@ const PreviewCardBackdrop = React.forwardRef<
   <PreviewCardPrimitive.Backdrop
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-black/60 data-[open]:animate-in data-[ending-style]:animate-out data-[ending-style]:fade-out-0 data-[open]:fade-in-0",
+      "pointer-events-none fixed inset-0 z-50 bg-black/30 dark:bg-black/60 transition-all duration-200 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
       className
     )}
     {...props}
@@ -29,23 +29,17 @@ const PreviewCardPositioner = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof PreviewCardPrimitive.Positioner> & {
     backdrop?: boolean;
   }
->(
-  (
-    { className, backdrop = false, align = "center", sideOffset = 4, ...props },
-    ref
-  ) => (
-    <PreviewCardPrimitive.Portal>
-      {backdrop && <PreviewCardBackdrop />}
-      <PreviewCardPrimitive.Positioner
-        ref={ref}
-        className={cn("z-50", className)}
-        align={align}
-        sideOffset={sideOffset}
-        {...props}
-      />
-    </PreviewCardPrimitive.Portal>
-  )
-);
+>(({ className, backdrop = false, sideOffset = 8, ...props }, ref) => (
+  <PreviewCardPrimitive.Portal keepMounted>
+    {backdrop && <PreviewCardBackdrop />}
+    <PreviewCardPrimitive.Positioner
+      ref={ref}
+      className={cn("outline-none z-50", className)}
+      sideOffset={sideOffset}
+      {...props}
+    />
+  </PreviewCardPrimitive.Portal>
+));
 PreviewCardPositioner.displayName = PreviewCardPrimitive.Positioner.displayName;
 
 const PreviewCardPopup = React.forwardRef<
@@ -57,7 +51,7 @@ const PreviewCardPopup = React.forwardRef<
   <PreviewCardPrimitive.Popup
     ref={ref}
     className={cn(
-      "z-50 w-64 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[open]:animate-in data-[ending-style]:animate-out data-[ending-style]:fade-out-0 data-[open]:fade-in-0 data-[ending-style]:zoom-out-95 data-[open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      "origin-[var(--transform-origin)] w-64 rounded-md bg-popover p-4 text-text-accent shadow-md outline outline-1 outline-border transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0",
       className
     )}
     {...props}

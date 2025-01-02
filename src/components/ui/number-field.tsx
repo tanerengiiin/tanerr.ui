@@ -60,18 +60,18 @@ const NumberFieldInput = React.forwardRef<
     <NumberFieldPrimitive.Input
       ref={ref}
       className={cn(
-        "flex h-9 w-full rounded-md border border-input bg-background pl-2.5 pr-20 py-1.5 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-4 transition-[box-shadow,_border] focus-visible:ring-primary/5 focus-visible:border-primary/25 dark:focus-visible:border-primary/40 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        "flex h-9 w-full rounded-md border border-input bg-background pl-2.5 pr-20 py-1.5 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-text-muted focus-visible:outline-none focus-visible:ring-4 transition-[box-shadow,_border] focus-visible:ring-ring focus-visible:border-base-300 dark:focus-visible:border-base-600 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
         className
       )}
       {...props}
     >
       {children}
     </NumberFieldPrimitive.Input>
-    <div className="flex absolute w-[4.5rem] right-px inset-y-px rounded-r-md overflow-hidden divide-x divide-border border-l">
-      <NumberFieldPrimitive.Decrement className="h-full flex-1 flex items-center justify-center [&_svg]:size-4 text-text-accent hover:text-text-primary hover:bg-accent transition-colors">
+    <div className="flex absolute w-[4.5rem] right-px inset-y-px rounded-r-[calc(var(--radius))] overflow-hidden divide-x divide-border border-l">
+      <NumberFieldPrimitive.Decrement className="h-full flex-1 flex items-center justify-center [&_svg]:size-4 text-text-muted hover:text-text-primary hover:bg-muted transition-colors">
         <Minus />
       </NumberFieldPrimitive.Decrement>
-      <NumberFieldPrimitive.Increment className="h-full flex-1 flex items-center justify-center [&_svg]:size-4 text-text-accent hover:text-text-primary hover:bg-accent transition-colors">
+      <NumberFieldPrimitive.Increment className="h-full flex-1 flex items-center justify-center [&_svg]:size-4 text-text-muted hover:text-text-primary hover:bg-muted transition-colors">
         <Plus />
       </NumberFieldPrimitive.Increment>
     </div>

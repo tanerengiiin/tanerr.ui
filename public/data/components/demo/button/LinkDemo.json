@@ -1,0 +1,4 @@
+{
+  "filename": "LinkDemo.tsx",
+  "content": "import { Button } from '@/components/ui/button'\n\nexport default function LinkDemo() {\n  return (\n    <div className='flex items-center gap-2'>\n        <Button variant=\"link\">Link</Button>\n    </div>\n    )\n}\n"
+}

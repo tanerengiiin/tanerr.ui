@@ -2,10 +2,14 @@ import ComponentViewer from "@/components/docs/ComponentViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import CodeViewer from "@/components/docs/CodeViewer";
 import InputDemo from "@/components/demo/input/InputDemo"
+import FileInputDemo from "@/components/demo/input/FileInputDemo"
+import DisabledInputDemo from "@/components/demo/input/DisabledInputDemo"
+import WithLabelInputDemo from "@/components/demo/input/WithLabelInputDemo"
+import WithIconInputDemo from "@/components/demo/input/WithIconInputDemo"
 
 export const metadata = {
-  title: "Switch",
-  breadcrumb: ["Docs", "Switch"],
+  title: "Input",
+  breadcrumb: ["Docs", "Components", "Input"],
 };
 
 <ComponentViewer json="/data/components/demo/input/InputDemo.json">
@@ -14,14 +18,19 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `input.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
-    <CodeViewer className="mt-3" path="./src/components/ui/input.tsx" />
+    <h6>Copy and paste the following code into the file.</h6>
+    <CodeViewer
+      className="mt-3"
+      path="./src/components/ui/input.tsx"
+    />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -29,6 +38,38 @@ export const metadata = {
 
 <CodeViewer
   className="mt-3"
-  code={`import { Switch } from "@/components/ui/switch"`}
+  code={`import { Input } from "@/components/ui/input"`}
 />
-<CodeViewer className="mt-3" code={`<Switch />`} />
+<CodeViewer className="mt-3" code={`<Input />`} />
+
+## Examples
+
+### Default
+
+<ComponentViewer className="mt-3" json="/data/components/demo/input/InputDemo.json">
+  <InputDemo />
+</ComponentViewer>
+
+### File
+
+<ComponentViewer className="mt-3" json="/data/components/demo/input/FileInputDemo.json">
+  <FileInputDemo />
+</ComponentViewer>
+
+### Disabled
+
+<ComponentViewer className="mt-3" json="/data/components/demo/input/DisabledInputDemo.json">
+  <DisabledInputDemo />
+</ComponentViewer>
+
+### With Icon
+
+<ComponentViewer className="mt-3" json="/data/components/demo/input/WithIconInputDemo.json">
+  <WithIconInputDemo />
+</ComponentViewer>
+
+### With Label
+
+<ComponentViewer className="mt-3" json="/data/components/demo/input/WithLabelInputDemo.json">
+  <WithLabelInputDemo />
+</ComponentViewer>

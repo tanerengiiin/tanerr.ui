@@ -1,0 +1,4 @@
+{
+  "filename": "ToneToggleDemo.tsx",
+  "content": "import { Toggle } from '@/components/ui/toggle';\nimport { CheckCircle2, Info, TriangleAlert, XCircle } from 'lucide-react';\n\nexport default function ToneToggleDemo() {\n  return (\n    <div className=\"flex gap-2\">\n      <Toggle tone=\"default\">\n        <Info className=\"h-4 w-4\" />\n        Default\n      </Toggle>\n\n      <Toggle tone=\"success\">\n        <CheckCircle2 className=\"h-4 w-4\" />\n        Success\n      </Toggle>\n\n      <Toggle tone=\"info\">\n        <Info className=\"h-4 w-4\" />\n        Info\n      </Toggle>\n\n      <Toggle tone=\"warning\">\n        <TriangleAlert className=\"h-4 w-4\" />\n        Warning\n      </Toggle>\n\n      <Toggle tone=\"error\">\n        <XCircle className=\"h-4 w-4\" />\n        Error\n      </Toggle>\n    </div>\n  );\n}\n\n"
+}

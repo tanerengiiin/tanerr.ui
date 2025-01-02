@@ -2,7 +2,7 @@ import { NumberField,  NumberFieldInput, NumberFieldScrubArea } from "@/componen
 
 export default function NumberFieldDemo() {
   return (
-    <NumberField>
+    <NumberField defaultValue={8}>
         <NumberFieldScrubArea>
             <label className="font-medium text-sm">Amount</label>
         </NumberFieldScrubArea>

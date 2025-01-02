@@ -1,0 +1,4 @@
+{
+  "filename": "ToneSliderDemo.tsx",
+  "content": "import { Slider } from '@/components/ui/slider';\nimport React from 'react'\n\nexport default function ToneSliderDemo() {\n  return (\n    <div>\n      <Slider tone=\"success\" defaultValue={25}/>\n      <Slider tone=\"info\" defaultValue={50}/>\n      <Slider tone=\"warning\" defaultValue={30}/>\n      <Slider tone=\"error\" defaultValue={60}/>\n    </div>\n  );\n}\n\n"
+}

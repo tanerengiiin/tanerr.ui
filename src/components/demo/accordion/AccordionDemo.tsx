@@ -4,45 +4,44 @@ import {
   AccordionPanel,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { UserCircle } from "lucide-react";
+import { CreditCard, ShieldCheck, Truck } from "lucide-react";
 
 export default function AccordionDemo() {
   return (
-    <Accordion openMultiple={false} className={"space-y-4 w-3/4"}>
+    <Accordion openMultiple={false} inset className="space-y-4 w-3/4">
       <AccordionItem>
         <AccordionTrigger>
-          <UserCircle />
-          How do I update my account information?
+          <CreditCard />
+          What payment methods do you accept?
         </AccordionTrigger>
-        <AccordionPanel inset>
-          <div className="pb-2 pt-0">
-            Major credit and debit cards like Visa, MasterCard, and American
-            Express, as well as digital payment options like PayPal and Apple
-            Pay.
-          </div>
+        <AccordionPanel>
+          We accept all major credit and debit cards including Visa, MasterCard,
+          and American Express. You can also pay using digital payment methods
+          like PayPal, Apple Pay, and Google Pay for your convenience.
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
         <AccordionTrigger>
-          <UserCircle />
-          How do I update my account information?
+          <Truck />
+          How long does shipping take?
         </AccordionTrigger>
-        <AccordionPanel inset>
-          <div className="pb-2 pt-0">
-            Major credit and debit cards like Visa, MasterCard, and American
-            Express, as well as digital payment options like PayPal and Apple
-            Pay.
-          </div>
+        <AccordionPanel>
+          Standard shipping typically takes 3-5 business days within the
+          continental US. International shipping can take 7-14 business days
+          depending on the destination. Express shipping options are available
+          for faster delivery.
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
         <AccordionTrigger>
-          <UserCircle />
-          How do I update my account information?
+          <ShieldCheck />
+          Is my personal information secure?
         </AccordionTrigger>
-        <AccordionPanel inset>
-          Major credit and debit cards like Visa, MasterCard, and American
-          Express, as well as digital payment options like PayPal and Apple Pay.
+        <AccordionPanel>
+          Yes, we take data security very seriously. All personal information is
+          encrypted using industry-standard protocols, and we never share your
+          data with third parties without your explicit consent. Our security
+          measures are regularly updated to ensure maximum protection.
         </AccordionPanel>
       </AccordionItem>
     </Accordion>

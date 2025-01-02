@@ -2,10 +2,10 @@ import ComponentViewer from "@/components/docs/ComponentViewer";
 import { Step, Stepper } from "@/components/docs/Stepper";
 import CodeViewer from "@/components/docs/CodeViewer";
 import MenuDemo from "@/components/demo/menu/MenuDemo";
-
+import InsetPropMenuDemo from "@/components/demo/menu/InsetPropMenuDemo";
 export const metadata = {
   title: "Menu",
-  breadcrumb: ["Docs", "Menu"],
+  breadcrumb: ["Docs", "Components", "Menu"],
 };
 
 <ComponentViewer json="/data/components/demo/menu/MenuDemo.json">
@@ -14,14 +14,16 @@ export const metadata = {
 
 ## Installation
 
-<Stepper totalSteps={2}>
+<Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Install dependencies</h6>
-    <CodeViewer className="mt-3" code={`pnpm add @radix-ui/react-slot`} />
+    <h6>Create `menu.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
-    <h6>Copy and paste the code below</h6>
+    <h6>Copy and paste the following code into the file.</h6>
     <CodeViewer className="mt-3" path="./src/components/ui/menu.tsx" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
   </Step>
 </Stepper>
 
@@ -29,6 +31,82 @@ export const metadata = {
 
 <CodeViewer
   className="mt-3"
-  code={`import { Switch } from "@/components/ui/switch"`}
+  code={`import {
+    Menu,
+    MenuCheckboxItem,
+    MenuGroup,
+    MenuGroupLabel,
+    MenuItem,
+    MenuPopup,
+    MenuPositioner,
+    MenuRadioGroup,
+    MenuRadioItem,
+    MenuSeparator,
+    MenuSubmenuTrigger,
+    MenuTrigger,
+} from "@/components/ui/menu";
+import { Button } from "@/components/ui/button";`}
 />
-<CodeViewer className="mt-3" code={`<Switch />`} />
+<CodeViewer
+  className="mt-3"
+  code={`<Menu>
+    <MenuTrigger render={
+        <Button variant={"outline"}>
+          Open Menu <ChevronDownIcon />
+        </Button>
+    }/>
+    <MenuPositioner>
+      <MenuPopup>
+        <MenuGroup>
+          <MenuGroupLabel>Group label</MenuGroupLabel>
+          <MenuItem>Profile</MenuItem>
+          <MenuSeparator />
+          <MenuItem>Calendar</MenuItem>
+        </MenuGroup>
+        <Menu>
+          <MenuSubmenuTrigger>Notifications</MenuSubmenuTrigger>
+          <MenuPositioner>
+            <MenuPopup>
+              <MenuItem>Profile</MenuItem>
+              <MenuItem>Settings</MenuItem>
+            </MenuPopup>
+          </MenuPositioner>
+        </Menu>
+        <MenuSeparator />
+        <MenuRadioGroup defaultValue={"item-1"}>
+          <MenuRadioItem value="item-1">Item 1</MenuRadioItem>
+          <MenuRadioItem value="item-2">Item 2</MenuRadioItem>
+        </MenuRadioGroup>
+        <MenuSeparator />
+        <MenuCheckboxItem>Item 1</MenuCheckboxItem>
+        <MenuCheckboxItem>Item 2</MenuCheckboxItem>
+      </MenuPopup>
+    </MenuPositioner>
+  </Menu>`}
+/>
+
+## Examples
+
+### Using inset prop
+
+The `inset` prop provides a way to add left padding to menu items. Here's how it works:
+
+<CodeViewer
+  className="mt-3"
+  code={`// Adding inset to MenuPopup affects all items
+<MenuPopup inset> // [!code highlight] 
+    <MenuItem>All items</MenuItem>
+    <MenuItem>Have padding</MenuItem>
+</MenuPopup>
+
+// Adding inset to specific MenuItems
+<MenuPopup>
+    <MenuItem>Normal item</MenuItem>
+    <MenuItem inset>Only this has padding</MenuItem> // [!code highlight] 
+    <MenuItem>Normal item</MenuItem>
+</MenuPopup>`}
+/>
+
+<ComponentViewer className="mt-6" json="/data/components/demo/menu/InsetPropMenuDemo.json">
+  <InsetPropMenuDemo />
+</ComponentViewer>
