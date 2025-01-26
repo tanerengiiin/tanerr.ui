@@ -1,0 +1,62 @@
+---
+title: Dialog
+description: A window overlay that renders the content underneath inert.
+links:
+  doc: https://base-ui.com/react/components/dialog
+  api: https://base-ui.com/react/components/dialog#api-reference
+---
+
+<ComponentViewer name="dialog-demo"/>
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `dialog.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="dialog" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog"
+```
+
+```tsx
+<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Edit profile</DialogTitle>
+      <DialogDescription>
+        Make changes to your profile here.
+      </DialogDescription>
+    </DialogHeader>
+    <div className="py-4">Your content goes here.</div>
+    <DialogFooter>
+      <Button>Save changes</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+
+## Examples
+
+### Nested dialogs
+
+<ComponentViewer className="mt-6" name="dialog-nested-demo"/>

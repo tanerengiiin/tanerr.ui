@@ -1,0 +1,43 @@
+---
+title: Radio Group
+description: A component that allows users to select one option from a set of choices.
+links:
+  doc: https://base-ui.com/react/components/radio-group
+  api: https://base-ui.com/react/components/radio-group#api-reference
+---
+
+<ComponentViewer name="radio-group-demo" />
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `radio-group.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="radio-group" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import { Radio, RadioGroup } from "@/components/ui/radio-group";
+```
+
+```tsx
+<RadioGroup defaultValue={"defult"}>
+  <label className="flex items-center gap-2">
+    <Radio value={"default"} />
+    <span className="text-sm font-medium">Default</span>
+  </label>
+  <label className="flex items-center gap-2">
+    <Radio value={"comfortable"} />
+    <span className="text-sm font-medium">Comfortable</span>
+  </label>
+</RadioGroup>
+```

@@ -1,0 +1,67 @@
+---
+title: Button
+description: Interactive element for triggering actions.
+---
+
+<ComponentViewer name="button-demo"/>
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `button.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="button" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button";
+```
+
+```tsx
+<Button>Button</Button>
+```
+
+## Examples 
+
+### Solid 
+
+<ComponentViewer className="mt-6" name="button-solid-demo"/>
+
+### Outline 
+
+<ComponentViewer className="mt-6" name="button-outline-demo"/>
+
+### Ghost
+
+<ComponentViewer className="mt-6" name="button-ghost-demo"/>
+
+### Link
+
+<ComponentViewer className="mt-6" name="button-link-demo"/>
+
+### Size
+
+<ComponentViewer className="mt-6" name="button-size-demo"/>
+
+### Icon
+
+<ComponentViewer className="mt-6" name="button-icon-demo"/>
+
+### With Icon
+
+<ComponentViewer className="mt-6" name="button-with-icon-demo"/>
+
+### Loading
+
+The `loading` prop prevents click events while keeping the button visually prominent, unlike `disabled` which makes it too faint. Use it to indicate processing states.
+
+<ComponentViewer className="mt-6" name="button-loading-demo"/>

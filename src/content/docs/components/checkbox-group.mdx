@@ -1,0 +1,48 @@
+---
+title: Checkbox Group
+description: A collection of related checkbox inputs.
+links:
+  doc: https://base-ui.com/react/components/checkbox-group
+  api: https://base-ui.com/react/components/checkbox-group#api-reference
+---
+
+<ComponentViewer name="checkbox-group-demo"/>
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `checkbox-group.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="checkbox-group" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import { Checkbox } from "@/components/ui/checkbox";
+import { CheckboxGroup } from "@/components/ui/checkbox-group";
+```
+
+```tsx
+<CheckboxGroup defaultValue={["react"]} aria-label="Technologies">
+  <div className="flex flex-col gap-3">
+    <label className="flex items-center gap-2">
+      <Checkbox name="react" />
+      React
+    </label>
+  </div>
+</CheckboxGroup>
+```
+
+## Examples
+
+### Using allValues props
+
+<ComponentViewer className="mt-6" name="checkbox-group-2-demo"/>

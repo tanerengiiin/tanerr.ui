@@ -1,0 +1,106 @@
+---
+title: Menu
+description: A list of options or actions for user selection.
+links:
+  doc: https://base-ui.com/react/components/menu
+  api: https://base-ui.com/react/components/menu#api-reference
+---
+
+<ComponentViewer name="menu-demo" />
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `menu.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource className="mt-3" name="menu" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import {
+  Menu,
+  MenuCheckboxItem,
+  MenuGroup,
+  MenuGroupLabel,
+  MenuItem,
+  MenuPopup,
+  MenuPositioner,
+  MenuRadioGroup,
+  MenuRadioItem,
+  MenuSeparator,
+  MenuSubmenuTrigger,
+  MenuTrigger,
+} from "@/components/ui/menu";
+import { Button } from "@/components/ui/button";
+```	
+
+```tsx className="[&_pre]:max-h-[320px]"
+<Menu>
+  <MenuTrigger
+    render={
+      <Button variant={"outline"}>
+        Open Menu <ChevronDownIcon />
+      </Button>
+    }
+  />
+  <MenuPositioner>
+    <MenuPopup>
+      <MenuGroup>
+        <MenuGroupLabel>Group label</MenuGroupLabel>
+        <MenuItem>Profile</MenuItem>
+        <MenuSeparator />
+        <MenuItem>Calendar</MenuItem>
+      </MenuGroup>
+      <Menu>
+        <MenuSubmenuTrigger>Notifications</MenuSubmenuTrigger>
+        <MenuPositioner>
+          <MenuPopup>
+            <MenuItem>Profile</MenuItem>
+            <MenuItem>Settings</MenuItem>
+          </MenuPopup>
+        </MenuPositioner>
+      </Menu>
+      <MenuSeparator />
+      <MenuRadioGroup defaultValue={"item-1"}>
+        <MenuRadioItem value="item-1">Item 1</MenuRadioItem>
+        <MenuRadioItem value="item-2">Item 2</MenuRadioItem>
+      </MenuRadioGroup>
+      <MenuSeparator />
+      <MenuCheckboxItem>Item 1</MenuCheckboxItem>
+      <MenuCheckboxItem>Item 2</MenuCheckboxItem>
+    </MenuPopup>
+  </MenuPositioner>
+</Menu>
+```
+
+## Examples
+
+### Using inset prop
+
+The `inset` prop provides a way to add left padding to menu items. Here's how it works:
+
+```tsx {2} {11}
+// Adding inset to MenuPopup affects all items
+<MenuPopup inset>
+    <MenuItem>All items</MenuItem>
+    <MenuItem>Have padding</MenuItem>
+</MenuPopup>
+
+// Adding inset to specific MenuItems
+
+<MenuPopup>
+  <MenuItem>Normal item</MenuItem>
+  <MenuItem inset>Only this has padding</MenuItem>
+  <MenuItem>Normal item</MenuItem>
+</MenuPopup>
+```
+<ComponentViewer className="mt-6" name="menu-inset-demo"/>

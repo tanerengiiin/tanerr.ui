@@ -1,0 +1,54 @@
+--- 
+title: Progress
+description: A component that indicates the progress of a task.
+links:
+  doc: https://base-ui.com/react/components/progress
+  api: https://base-ui.com/react/components/progress#api-reference
+---
+
+<ComponentViewer name="progress-demo"/>
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `progress.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="progress" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import { 
+    Dialog, 
+    DialogTrigger, 
+    DialogPopup, 
+    DialogTitle, 
+    DialogDescription 
+} from "@/components/ui/dialog";
+```
+  
+```tsx
+<Dialog>
+  <DialogTrigger render={<Button>Open</Button>}/>
+  <DialogPopup>
+    <DialogTitle>Edit profile</DialogTitle>
+    <DialogDescription>Make changes to your profile here. Click save when you're done.</DialogDescription>
+  </DialogPopup>
+</Dialog>
+```
+
+## Examples
+
+### Using tone prop
+
+You can use linear prop to make the progress bar animate in a linear way.
+
+<ComponentViewer className="mt-6" name="progress-tone-demo"/>

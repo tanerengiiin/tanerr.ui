@@ -1,0 +1,54 @@
+---
+title: Accordion
+description: An expandable/collapsible content container.
+links:
+  doc: https://base-ui.com/react/components/accordion
+  api: https://base-ui.com/react/components/accordion#api-reference
+---
+
+<ComponentViewer name="accordion-demo"/>
+
+## Installation
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create <code className="text-primary">accordion.tsx</code> file in your <code className="text-primary">components/ui/</code> directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="accordion" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+
+## Usage
+
+```tsx 
+import {
+    Accordion,
+    AccordionItem,
+    AccordionPanel,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
+```
+```tsx 
+<Accordion>
+    <AccordionItem>
+        <AccordionTrigger>
+        What payment methods do you accept?
+        </AccordionTrigger>
+        <AccordionPanel>
+        We accept all major credit and debit cards.
+        </AccordionPanel>
+    </AccordionItem>
+</Accordion>
+```
+
+## Examples
+
+### Using inset prop
+Note: Adding `inset` prop to `Accordion` affects all child `AccordionItem`s. See the example at the beginning of this page.
+
+<ComponentViewer className="mt-6" name="accordion-inset-demo"/>

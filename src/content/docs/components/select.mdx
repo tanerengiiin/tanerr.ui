@@ -1,0 +1,69 @@
+---
+title: Select
+description: A component that allows users to select an option from a dropdown list.
+links:
+  doc: https://base-ui.com/react/components/select
+  api: https://base-ui.com/react/components/select#api-reference
+---
+
+<ComponentViewer name="select-demo" />
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `select.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="select" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import {
+  Select,
+  SelectGroup,
+  SelectGroupLabel,
+  SelectItem,
+  SelectPopup,
+  SelectPositioner,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+```
+
+```tsx
+<Select>
+  <SelectTrigger className="w-[180px]">
+    <SelectValue placeholder="Select a fruit" />
+  </SelectTrigger>
+  <SelectPositioner>
+    <SelectPopup>
+      <SelectItem value="apple">Apple</SelectItem>
+      <SelectSeparator />
+      <SelectGroup>
+        <SelectGroupLabel>Exotic Fruits</SelectGroupLabel>
+        <SelectItem value="mango">Mango</SelectItem>
+      </SelectGroup>
+      <SelectSeparator />
+      <SelectGroup>
+        <SelectGroupLabel>Citrus Fruits</SelectGroupLabel>
+        <SelectItem value="lemon">Lemon</SelectItem>
+      </SelectGroup>
+    </SelectPopup>
+  </SelectPositioner>
+</Select>
+```
+
+## Examples
+
+### Using backdrop prop
+
+<ComponentViewer className="mt-6" name="select-backdrop-demo" />

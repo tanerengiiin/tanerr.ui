@@ -1,0 +1,48 @@
+---
+title: Toggle Group
+description: A component that allows users to select one or more options from a set of toggles.
+links:
+  doc: https://base-ui.com/react/components/toggle-group
+  api: https://base-ui.com/react/components/toggle-group#api-reference
+---
+
+<ComponentViewer name="toggle-group-demo" />
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `toggle-group.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="toggle-group" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import { Toggle } from "@/components/ui/toggle";
+import { ToggleGroup } from "@/components/ui/toggle-group";
+```
+
+```tsx
+<ToggleGroup>
+  <Toggle value="bold">
+    B
+  </Toggle>
+  <Toggle value="italic">
+    I
+  </Toggle>
+</ToggleGroup>
+```
+
+## Examples
+
+### Using tone prop
+
+<ComponentViewer className="mt-6" name="toggle-tone-group-demo" />

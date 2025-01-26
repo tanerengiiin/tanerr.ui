@@ -1,0 +1,52 @@
+---
+title: Input
+description: A form input field or a component that resembles one.
+links:
+  doc: https://base-ui.com/react/components/input
+  api: https://base-ui.com/react/components/input#api-reference
+---
+
+<ComponentViewer name="input-demo"/>
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `input.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="input" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import { Input } from "@/components/ui/input"
+```
+
+```tsx
+<Input placeholder="Email" />
+```
+
+## Examples
+
+### File
+
+<ComponentViewer className="mt-6" name="input-file-demo"/>
+
+### Disabled
+
+<ComponentViewer className="mt-6" name="input-disabled-demo"/>
+
+### With Icon
+
+<ComponentViewer className="mt-6" name="input-with-icon-demo"/>
+
+### With Label
+
+<ComponentViewer className="mt-6" name="input-with-label-demo"/>

@@ -1,0 +1,40 @@
+--- 
+title: Slider
+description: A component that allows users to select a value from a range using a sliding control.
+links:
+  doc: https://base-ui.com/react/components/slider
+  api: https://base-ui.com/react/components/slider#api-reference
+---
+
+<ComponentViewer name="slider-demo" />
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `slider.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="slider" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import { Slider } from '@/components/ui/slider';
+```
+
+```tsx
+<Slider />
+```
+
+## Examples
+
+### Using tone prop
+
+<ComponentViewer className="mt-6" name="slider-tone-demo" />

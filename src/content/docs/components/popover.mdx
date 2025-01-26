@@ -1,0 +1,58 @@
+---
+title: Popover
+description: A component that displays content on top of other content.
+links:
+  doc: https://base-ui.com/react/components/popover
+  api: https://base-ui.com/react/components/popover#api-reference
+---
+
+<ComponentViewer name="popover-demo" />
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `popover.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="popover" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import {
+  Popover,
+  PopoverPopup,
+  PopoverPositioner,
+  PopoverTrigger,
+  PopoverTitle,
+  PopoverDescription,
+} from "@/components/ui/popover";
+```
+
+```tsx
+<Popover>
+  <PopoverTrigger render={<Button variant="outline">Open popover</Button>} />
+  <PopoverPositioner>
+    <PopoverPopup className="w-80">
+      <PopoverTitle>Dimensions</PopoverTitle>
+      <PopoverDescription className="mt-1">
+        Set the dimensions for the layer.
+      </PopoverDescription>
+      <div className="mt-4"></div>
+    </PopoverPopup>
+  </PopoverPositioner>
+</Popover>
+```
+
+## Examples
+
+### Using backdrop prop
+
+<ComponentViewer className="mt-6" name="popover-backdrop-demo" />

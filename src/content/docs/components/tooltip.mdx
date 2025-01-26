@@ -1,0 +1,58 @@
+---
+title: Tooltip
+description: A component that provides additional information when hovering over an element.
+links:
+  doc: https://base-ui.com/react/components/tooltip
+  api: https://base-ui.com/react/components/tooltip#api-reference
+---
+
+<ComponentViewer name="tooltip-demo" />
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `tooltip.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="tooltip" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+## Usage
+
+```tsx
+import {
+  Tooltip,
+  TooltipPopup,
+  TooltipPositioner,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+```
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger
+      render={
+        <Button variant={"ghost"} size={"icon"}>
+          <Bold />
+        </Button>
+      }
+    />
+    <TooltipPositioner>
+      <TooltipPopup>
+        <p>Bold</p>
+      </TooltipPopup>
+    </TooltipPositioner>
+  </Tooltip>
+</TooltipProvider>
+```
+
+## Examples
+
+<ComponentViewer className="mt-6" name="tooltip-advanced-demo" />

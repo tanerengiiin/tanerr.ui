@@ -1,0 +1,45 @@
+--- 
+title: Toggle
+description: A component that allows users to toggle between two states.
+links:
+  doc: https://base-ui.com/react/components/toggle
+  api: https://base-ui.com/react/components/toggle#api-reference
+---
+
+<ComponentViewer name="toggle-demo" />
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `toggle.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="toggle" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+## Usage
+
+```tsx
+import { Toggle } from "@/components/ui/toggle";
+```
+
+```tsx
+<Toggle>
+  B
+</Toggle>
+```
+
+## Examples
+
+### Using size prop
+
+<ComponentViewer className="mt-6" name="toggle-size-demo" />
+
+### Using tone prop
+
+<ComponentViewer className="mt-6" name="toggle-tone-demo" />

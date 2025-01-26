@@ -1,0 +1,44 @@
+---
+title: Number Field
+description: A field for entering and manipulating numbers.
+links:
+  doc: https://base-ui.com/react/components/number-field
+  api: https://base-ui.com/react/components/number-field#api-reference
+---
+
+<ComponentViewer name="number-field-demo"/>
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `number-field.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="number-field" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import {
+  NumberField,
+  NumberFieldInput,
+  NumberFieldScrubArea
+} from "@/components/ui/number-field"
+```
+
+```tsx
+<NumberField>
+  <NumberFieldScrubArea>
+    <label className="font-medium text-sm">Amount</label>
+  </NumberFieldScrubArea>
+  <NumberFieldInput className="w-40"/>
+</NumberField>
+```
+
