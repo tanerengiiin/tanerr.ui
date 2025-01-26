@@ -6,7 +6,7 @@ export default function ButtonGhostDemo() {
       <Button variant="ghost" tone="primary">
         Primary
       </Button>
-      <Button variant="ghost">Default</Button>
+      <Button variant="ghost">Secondary</Button>
       <Button variant="ghost" tone="info">
         Info
       </Button>

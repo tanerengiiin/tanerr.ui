@@ -15,10 +15,10 @@ const switchVariants = cva(
       },
       tone: {
         default: "data-[checked]:bg-foreground",
-        success: "data-[checked]:bg-success focus-visible:ring-success/20",
-        info: "data-[checked]:bg-info focus-visible:ring-info/20",
-        warning: "data-[checked]:bg-warning focus-visible:ring-warning/20",
-        error: "data-[checked]:bg-error focus-visible:ring-error/20",
+        success: "bg-success-100 data-[checked]:bg-success-500 focus-visible:ring-success/20",
+        info: "bg-info-100 data-[checked]:bg-info-500 focus-visible:ring-info/20",
+        warning: "bg-warning-100 data-[checked]:bg-warning-500 focus-visible:ring-warning/20",
+        error: "bg-error-100 data-[checked]:bg-error-500 focus-visible:ring-error/20",
       },
     },
     defaultVariants: {

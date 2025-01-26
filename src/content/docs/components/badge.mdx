@@ -1,0 +1,41 @@
+---
+title: Badge
+description: Interactive element for triggering actions.
+---
+
+<ComponentViewer name="badge-demo"/>
+
+## Installation
+
+<Stepper totalSteps={3}>
+  <Step stepNumber={1}>
+    <h6>Create `button.tsx` file in your `components/ui/` directory.</h6>
+  </Step>
+  <Step stepNumber={2}>
+    <h6>Copy and paste the following code into the file.</h6>
+    <ComponentSource name="badge" />
+  </Step>
+  <Step stepNumber={3}>
+    <h6>Update the import paths according to your project setup.</h6>
+  </Step>
+</Stepper>
+
+## Usage
+
+```tsx
+import { Badge } from "@/components/ui/badge";
+```
+
+```tsx
+<Badge>Badge</Badge>
+```
+
+## Examples
+
+### Tone
+
+<ComponentViewer className="mt-6" name="badge-tone-demo"/>
+
+### Outline
+
+<ComponentViewer className="mt-6" name="badge-variant-demo"/>

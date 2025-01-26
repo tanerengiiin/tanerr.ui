@@ -29,108 +29,103 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      // Default styles for each variant when tone is not specified
       {
         variant: "solid",
-        className: "bg-primary text-primary-foreground hover:bg-primary/90", // primary is default for solid
+        className: "bg-primary text-primary-foreground hover:bg-base-700 dark:hover:bg-base-300",
       },
       {
         variant: "outline",
-        className: "border-border text-text-primary hover:bg-muted shadow-sm", // secondary is default for outline
+        className: "border-border text-primary hover:bg-muted",
       },
       {
         variant: "ghost",
-        className: "text-text-primary hover:bg-muted", // secondary is default for ghost
+        className: "text-text-primary hover:bg-muted",
       },
-      {
-        variant: "link",
-        className: "text-text-primary", // primary is default for link
-      },
-
       // Solid variants with specific tones
       {
         variant: "solid",
         tone: "secondary",
         className:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/90",
+          "bg-muted text-text-primary hover:bg-accent",
       },
       {
         variant: "solid",
         tone: "info",
-        className: "bg-info text-info-foreground hover:bg-info/90",
+        className: "bg-info-600 text-white hover:bg-info-700 dark:hover:bg-info-500",
       },
       {
         variant: "solid",
         tone: "success",
-        className: "bg-success text-success-foreground hover:bg-success/90",
+        className: "bg-success-500 dark:bg-success-600 text-white hover:bg-success-600 dark:hover:bg-success-500",
       },
       {
         variant: "solid",
         tone: "warning",
-        className: "bg-warning text-warning-foreground hover:bg-warning/90",
+        className: "bg-warning-500 text-white hover:bg-warning-600 dark:hover:bg-warning-400",
       },
       {
         variant: "solid",
         tone: "error",
-        className: "bg-error text-error-foreground hover:bg-error/90",
+        className: "bg-error-600 text-white hover:bg-error-700 dark:hover:bg-error-500",
       },
 
       // Outline variants with specific tones
       {
         variant: "outline",
         tone: "primary",
-        className: "border-primary text-primary hover:bg-primary/10",
+        className: "border-primary text-primary hover:bg-accent",
       },
       {
         variant: "outline",
         tone: "info",
-        className: "border-info text-info hover:bg-info/10",
+        className: "border-info-500 text-info-600 dark:text-info-500 hover:bg-info-50 dark:hover:bg-info-950",
       },
       {
         variant: "outline",
         tone: "success",
-        className: "border-success text-success hover:bg-success/10",
+        className: "border-success-500 text-success-600 dark:text-success-500 hover:bg-success-50 dark:hover:bg-success-950",
       },
       {
         variant: "outline",
         tone: "warning",
-        className: "border-warning text-warning hover:bg-warning/10",
+        className: "border-warning-500 text-warning-500 hover:bg-warning-50 dark:hover:bg-warning-950",
       },
       {
         variant: "outline",
         tone: "error",
-        className: "border-error text-error hover:bg-error/10",
+        className: "border-error-500 text-error-600 dark:text-error-500 hover:bg-error-50 dark:hover:bg-error-950",
       },
 
       // Ghost variants with specific tones
       {
         variant: "ghost",
         tone: "primary",
-        className: "text-text-primary hover:bg-primary/10",
+        className: "text-text-primary hover:bg-accent",
       },
       {
         variant: "ghost",
         tone: "info",
-        className: "text-info hover:bg-info/10",
+        className: "text-info-600 dark:text-info-500 hover:bg-info-50 dark:hover:bg-info-950",
       },
       {
         variant: "ghost",
         tone: "success",
-        className: "text-success hover:bg-success/10",
+        className: "text-success-600 dark:text-success-500 hover:bg-success-50 dark:hover:bg-success-950",
       },
       {
         variant: "ghost",
         tone: "warning",
-        className: "text-warning hover:bg-warning/10",
+        className: "text-warning-500 hover:bg-warning-50 dark:hover:bg-warning-950",
       },
       {
         variant: "ghost",
         tone: "error",
-        className: "text-error hover:bg-error/10",
+        className: "text-error-600 dark:text-error-500 hover:bg-error-50 dark:hover:bg-error-950",
       },
     ],
     defaultVariants: {
       variant: "solid",
+      tone: undefined,
       size: "default",
     },
   }

@@ -6,7 +6,7 @@ export default function ButtonOutlineDemo() {
       <Button variant="outline" tone="primary">
         Primary
       </Button>
-      <Button variant="outline">Default</Button>
+      <Button variant="outline">Secondary</Button>
       <Button variant="outline" tone="info">
         Info
       </Button>

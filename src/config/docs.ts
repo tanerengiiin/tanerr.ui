@@ -12,6 +12,10 @@ export const docsConfig = {
           href: "/docs/components/alert-dialog",
         },
         {
+          title: "Badge",
+          href: "/docs/components/badge",
+        },
+        {
           title: "Button",
           href: "/docs/components/button",
         },
@@ -30,6 +34,10 @@ export const docsConfig = {
         {
           title: "Dialog",
           href: "/docs/components/dialog",
+        },
+        {
+          title: "Drawer",
+          href: "/docs/components/drawer",
         },
         {
           title: "Form",
