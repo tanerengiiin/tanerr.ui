@@ -18,6 +18,7 @@ const badgeVariants = cva(
       variant: {
         solid: "bg-primary text-text-primary",
         outline: "border bg-background",
+        ghost: "",
       },
     },
     compoundVariants: [
@@ -30,33 +31,60 @@ const badgeVariants = cva(
         variant: "outline",
         className: "border-border text-text-primary", // secondary is default for outline
       },
-
+      {
+        variant: "ghost",
+        className: "bg-muted text-text-primary",
+      },
       // Solid variants with specific tones
       {
         variant: "solid",
-        tone: "secondary",
-        className:
-          "bg-muted text-text-primary",
-      },
-      {
-        variant: "solid",
         tone: "info",
-        className: "bg-info-50 dark:bg-info-950 text-info-600 dark:text-info-400",
+        className:
+          "bg-info-500 text-white",
       },
       {
         variant: "solid",
         tone: "success",
-        className: "bg-success-50 dark:bg-success-950 text-success-600 dark:text-success-400",
+        className:
+          "bg-success-500 text-white",
       },
       {
         variant: "solid",
         tone: "warning",
-        className: "bg-warning-50 dark:bg-warning-950 text-warning-600 dark:text-warning-400",
+        className:
+          "bg-warning-500 text-white",
       },
       {
         variant: "solid",
         tone: "error",
-        className: "bg-error-50 dark:bg-error-950 text-error-600 dark:text-error-400",
+        className:
+          "bg-error-500 text-white",
+      },
+      // Ghost variants with specific tones
+      
+      {
+        variant: "ghost",
+        tone: "info",
+        className:
+          "bg-info-50 dark:bg-info-950 text-info-600 dark:text-info-400",
+      },
+      {
+        variant: "ghost",
+        tone: "success",
+        className:
+          "bg-success-50 dark:bg-success-950 text-success-600 dark:text-success-400",
+      },
+      {
+        variant: "ghost",
+        tone: "warning",
+        className:
+          "bg-warning-50 dark:bg-warning-950 text-warning-600 dark:text-warning-400",
+      },
+      {
+        variant: "ghost",
+        tone: "error",
+        className:
+          "bg-error-50 dark:bg-error-950 text-error-600 dark:text-error-400",
       },
 
       // Outline variants with specific tones
@@ -104,7 +132,7 @@ function Badge({ className, variant, tone, rounded, ...props }: BadgeProps) {
     <div
       className={cn(
         badgeVariants({ variant, tone }),
-        rounded && "rounded-full",
+        rounded && "rounded-3xl",
         className
       )}
       {...props}

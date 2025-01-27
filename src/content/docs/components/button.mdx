@@ -65,3 +65,19 @@ import { Button } from "@/components/ui/button";
 The `loading` prop prevents click events while keeping the button visually prominent, unlike `disabled` which makes it too faint. Use it to indicate processing states.
 
 <ComponentViewer className="mt-6" name="button-loading-demo"/>
+
+### Rounded
+
+<ComponentViewer className="mt-6" name="button-rounded-demo"/>
+
+### Make rounded default
+
+Go to your `button.tsx` file and set `rounded` to `true` by default.
+
+```tsx /rounded = true/
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, ..., ..., ..., ..., rounded = true, ...props }, ref) => {
+    return (
+      <button
+        // ...
+```

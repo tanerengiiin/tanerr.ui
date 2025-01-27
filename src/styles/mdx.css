@@ -30,12 +30,8 @@
   @apply relative;
 }
 
-[data-rehype-pretty-code-figure] .word--highlighted {
-  @apply rounded-md bg-zinc-700/50 border-zinc-700/70 p-1;
-}
-
-.dark [data-rehype-pretty-code-figure] .word--highlighted {
-  @apply bg-zinc-900;
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  @apply rounded-md bg-base-600/50 dark:bg-base-700/50 px-2 py-1;
 }
 
 [data-rehype-pretty-code-title] {

@@ -101,7 +101,7 @@ const ComponentViewer = React.forwardRef<
         </Button>
       </div>
       <div className="mt-2 relative">
-        <div className={`w-full [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto border border-transparent [&_pre]:bg-base-800 dark:border-base-800 rounded-xl overflow-hidden [&_pre]:shadow-md ${
+        <div className={`w-full [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto [&_pre]:bg-base-800 rounded-xl overflow-hidden [&_pre]:shadow-md ${
             selectedTab !== "code" && "hidden pointer-events-none"
           }`}>
           {Code}

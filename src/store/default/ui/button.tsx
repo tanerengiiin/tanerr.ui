@@ -45,18 +45,17 @@ const buttonVariants = cva(
       {
         variant: "solid",
         tone: "secondary",
-        className:
-          "bg-muted text-text-primary hover:bg-accent",
+        className: "bg-muted text-text-primary hover:bg-accent dark:hover:bg-accent",
       },
       {
         variant: "solid",
         tone: "info",
-        className: "bg-info-600 text-white hover:bg-info-700 dark:hover:bg-info-500",
+        className: "bg-info-500 text-white hover:bg-info-600 dark:hover:bg-info-400",
       },
       {
         variant: "solid",
         tone: "success",
-        className: "bg-success-500 dark:bg-success-600 text-white hover:bg-success-600 dark:hover:bg-success-500",
+        className: "bg-success-500 text-white hover:bg-success-600 dark:hover:bg-success-400",
       },
       {
         variant: "solid",
@@ -66,7 +65,7 @@ const buttonVariants = cva(
       {
         variant: "solid",
         tone: "error",
-        className: "bg-error-600 text-white hover:bg-error-700 dark:hover:bg-error-500",
+        className: "bg-error-500 text-white hover:bg-error-600 dark:hover:bg-error-400",
       },
 
       // Outline variants with specific tones
@@ -135,15 +134,17 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   loading?: boolean;
+  rounded?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, tone, size, loading, ...props }, ref) => {
+  ({ className, variant, tone, size, loading, rounded, ...props }, ref) => {
     return (
       <button
         className={cn(
           buttonVariants({ variant, tone, size, className }),
-          loading && "pointer-events-none opacity-85"
+          loading && "pointer-events-none opacity-85",
+          rounded && "rounded-3xl"
         )}
         ref={ref}
         {...props}

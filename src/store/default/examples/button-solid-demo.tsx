@@ -3,20 +3,20 @@ import { Button } from "@/store/default/ui/button";
 export default function ButtonSolidDemo() {
   return (
     <div className="flex items-center gap-2">
-      <Button>Default</Button>
-      <Button variant="solid" tone="secondary">
+      <Button>Primary</Button>
+      <Button tone="secondary">
         Secondary
       </Button>
-      <Button variant="solid" tone="info">
+      <Button tone="info">
         Info
       </Button>
-      <Button variant="solid" tone="success">
+      <Button tone="success">
         Success
       </Button>
-      <Button variant="solid" tone="warning">
+      <Button tone="warning">
         Warning
       </Button>
-      <Button variant="solid" tone="error">
+      <Button tone="error">
         Error
       </Button>
     </div>

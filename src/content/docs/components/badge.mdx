@@ -1,6 +1,6 @@
 ---
 title: Badge
-description: Interactive element for triggering actions.
+description: Compact visual indicator for status and labels.
 ---
 
 <ComponentViewer name="badge-demo"/>
@@ -9,7 +9,7 @@ description: Interactive element for triggering actions.
 
 <Stepper totalSteps={3}>
   <Step stepNumber={1}>
-    <h6>Create `button.tsx` file in your `components/ui/` directory.</h6>
+    <h6>Create `badge.tsx` file in your `components/ui/` directory.</h6>
   </Step>
   <Step stepNumber={2}>
     <h6>Copy and paste the following code into the file.</h6>
@@ -32,10 +32,30 @@ import { Badge } from "@/components/ui/badge";
 
 ## Examples
 
-### Tone
+### Solid
 
-<ComponentViewer className="mt-6" name="badge-tone-demo"/>
+<ComponentViewer className="mt-6" name="badge-solid-demo"/>
+
+### Ghost
+
+<ComponentViewer className="mt-6" name="badge-ghost-demo"/>
+
 
 ### Outline
 
-<ComponentViewer className="mt-6" name="badge-variant-demo"/>
+<ComponentViewer className="mt-6" name="badge-outline-demo"/>
+
+### Rounded
+
+<ComponentViewer className="mt-6" name="badge-rounded-demo"/>
+
+### Make rounded default
+
+Go to `badge.tsx` and set `rounded` to `true` by default.
+
+```tsx /rounded = true/
+function Badge({ className, ..., ..., rounded = true, ...props }: BadgeProps) {
+  return (
+    <div
+    // ...
+```

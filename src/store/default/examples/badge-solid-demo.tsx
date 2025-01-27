@@ -7,10 +7,10 @@ import {
   Clock4,
 } from "lucide-react";
 
-export default function BadgeToneDemo() {
+export default function BadgeSolidDemo() {
   return (
     <div className="flex flex-col items-center gap-4">
-      <Badge tone="secondary">
+      <Badge>
         <CircleDashed />
         Draft
       </Badge>
