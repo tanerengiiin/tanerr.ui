@@ -676,6 +676,17 @@ export const Index: Record<string, any> = {
       source: "",
       meta: {},
     },
+    "line-chart-demo": {
+      name: "line-chart-demo",
+      description: "",
+      type: "example",
+      registryDependencies: [],
+      files: [{"path":"store/default/examples/line-chart-demo.tsx","type":"example","target":""}],
+      categories: [],
+      component: React.lazy(() => import("@/store/default/examples/line-chart-demo")),
+      source: "",
+      meta: {},
+    },
     "menu-demo": {
       name: "menu-demo",
       description: "",
