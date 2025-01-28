@@ -1,6 +1,15 @@
 export const docsConfig = {
   sidebarNav: [
     {
+      title: "Charts",
+      children: [
+        {
+          title: "Line Chart",
+          href: "/docs/charts/line-chart",
+        },
+      ],
+    },
+    {
       title: "Components",
       children: [
         {

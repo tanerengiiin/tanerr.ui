@@ -984,5 +984,16 @@ export const Index: Record<string, any> = {
       source: "",
       meta: {},
     },
+    "line-chart": {
+      name: "line-chart",
+      description: "",
+      type: "chart",
+      registryDependencies: [],
+      files: [{"path":"store/default/charts/line-chart.tsx","type":"chart","target":""}],
+      categories: [],
+      component: React.lazy(() => import("@/store/default/charts/line-chart")),
+      source: "",
+      meta: {},
+    },
   },
 }

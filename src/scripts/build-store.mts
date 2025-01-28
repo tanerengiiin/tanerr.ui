@@ -55,7 +55,7 @@ export const Index: Record<string, any> = {
   "default": {`
 
   for (const item of store.items) {
-    const componentPath = `@/store/default/${item.type === "ui" ? "ui" : "examples"}/${item.name}`
+    const componentPath = `@/store/default/${item.type === "ui" ? "ui" : item.type === "chart" ? "charts" : "examples"}/${item.name}`
     
     index += `
     "${item.name}": {
@@ -124,6 +124,30 @@ async function scanStoreDirectory() {
         files: [{
           path: `store/default/examples/${file}`,
           type: "example",
+          target: ""
+        }],
+        registryDependencies: [],
+        categories: [],
+        component: null,
+        source: "",
+        meta: {}
+      })
+    }
+  }
+
+  // Scan Charts
+  const chartsPath = path.join(process.cwd(), "src/store/default/charts")
+  const chartsFiles = await fs.readdir(chartsPath)
+  
+  for (const file of chartsFiles) {
+    if (file.endsWith(".tsx")) {
+      const name = file.replace(".tsx", "")
+      store.items.push({
+        name,
+        type: "chart",
+        files: [{
+          path: `store/default/charts/${file}`,
+          type: "chart",
           target: ""
         }],
         registryDependencies: [],
