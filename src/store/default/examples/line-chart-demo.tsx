@@ -25,10 +25,17 @@ export default function LineChartDemo() {
       lines={[
         {
           id: "SolarPanels",
-          dot: ()=><></>
+          color: {
+            name: "blue",
+            degree: "500",
+          },
         },
         {
           id: "Inverters",
+          color: {
+            name: "violet",
+            degree: "500",
+          },
         },
       ]}
     />
