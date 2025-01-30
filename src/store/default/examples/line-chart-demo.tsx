@@ -13,15 +13,19 @@ const chartdata = [
   { date: "Sep 23", SolarPanels: 2643, Inverters: 2342 },
   { date: "Oct 23", SolarPanels: 2837, Inverters: 2473 },
   { date: "Nov 23", SolarPanels: 2954, Inverters: 3848 },
-  { date: "Dec 23", SolarPanels: 3239, Inverters: 3736 },
+  { date: "Dec 23", SolarPanels: 3002, Inverters: 3736 },
 ];
 
 export default function LineChartDemo() {
   return (
     <LineChart
       data={chartdata}
-      index="date"
-      xAxisLabel="XXXX"
+      onValueChange={(value) => {
+        console.log("value", value);
+      }}
+      xAxisProps={{
+        dataKey: "date",
+      }}
       lines={[
         {
           id: "SolarPanels",

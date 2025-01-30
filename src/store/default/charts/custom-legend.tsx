@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect } from "react";
-import { ColorProps } from "./types";
 import { LegendProps as RechartsLegendProps } from "recharts";
 
 interface LegendItemProps {
@@ -16,15 +15,12 @@ const LegendItem = ({
   onClick,
   activeLegend,
 }: LegendItemProps) => {
-  const hasOnValueChange = !!onClick;
   return (
     <li
       className={cn(
         // base
-        "group inline-flex flex-nowrap items-center gap-1.5 whitespace-nowrap rounded px-2 py-1 transition",
-        hasOnValueChange
-          ? "cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
-          : "cursor-default"
+        "select-none group inline-flex flex-nowrap items-center gap-1.5 whitespace-nowrap rounded-sm px-2 py-1 transition cursor-pointer hover:bg-muted",
+        activeLegend && activeLegend === name && "bg-muted"
       )}
       onClick={(e) => {
         e.stopPropagation();
@@ -40,13 +36,7 @@ const LegendItem = ({
         aria-hidden={true}
       />
       <p
-        className={cn(
-          // base
-          "truncate whitespace-nowrap text-xs",
-          // text color
-          "text-gray-700 dark:text-gray-300",
-          hasOnValueChange &&
-            "group-hover:text-gray-900 dark:group-hover:text-gray-50",
+        className={cn("truncate whitespace-nowrap text-xs text-text-accent",
           activeLegend && activeLegend !== name ? "opacity-40" : "opacity-100"
         )}
       >
@@ -103,7 +93,7 @@ export const CustomLegend = ({
         { "justify-end": legendPosition === "right" }
       )}
     >
-      <ol className={cn("relative overflow-hidden flex h-full")}>
+      <ol className={cn("relative overflow-hidden flex gap-0.5 h-full")}>
         {legendPayload?.map((item, index) => (
           <LegendItem
             key={`legend-item-${index}`}

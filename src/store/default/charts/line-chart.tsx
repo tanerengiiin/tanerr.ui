@@ -21,6 +21,11 @@ import {
   LabelProps,
   Legend,
   LegendProps,
+  DotProps,
+  ReferenceLine,
+  ReferenceLineProps,
+  Brush,
+  ReferenceArea,
 } from "recharts";
 import { CustomTooltip } from "@/store/default/charts/custom-tooltip";
 import { CustomLegend } from "@/store/default/charts/custom-legend";
@@ -29,6 +34,11 @@ import {
   getTailwindColor,
   hasOnlyOneValueForKey,
 } from "@/store/default/charts/chartUtils";
+
+interface ActiveDot extends DotProps {
+  index?: number;
+  dataKey?: string;
+}
 
 type BaseEventProps = {
   eventType: "dot" | "category";
@@ -45,14 +55,14 @@ export interface LineProps extends Omit<RechartsLineProps, "ref" | "color"> {
 
 export interface LineChartProps extends React.HTMLAttributes<HTMLDivElement> {
   data: Array<Record<string, any>>;
-  index: string;
   chartProps?: Omit<
     React.ComponentProps<typeof LineChartPrimitive>,
     "data" | "children"
   >;
   showCartesianGrid?: boolean;
   cartesianGridProps?: CartesianGridProps;
-  xAxisProps?: XAxisProps;
+  xAxisProps: Required<Pick<XAxisProps, "dataKey">> &
+    Partial<Omit<XAxisProps, "dataKey">>;
   yAxisProps?: YAxisProps;
   yAxisLabel?: string;
   xAxisLabel?: string;
@@ -60,12 +70,19 @@ export interface LineChartProps extends React.HTMLAttributes<HTMLDivElement> {
   yAxisLabelProps?: LabelProps;
   valueFormatter?: (value: number) => string;
   lines: Array<LineProps>;
+  tooltipProps?: TooltipProps<any, any> & {
+    content?:
+      | React.ReactNode
+      | ((props: TooltipProps<any, any>) => React.ReactNode);
+  };
   tooltipCallback?: (tooltipCallbackContent: TooltipProps<any, any>) => void;
-  tooltipProps?: TooltipProps<any, any>;
   showLegend?: boolean;
   legendProps?: Omit<LegendProps, "ref">;
   onValueChange?: (value: LineChartEventProps) => void;
   legendPosition?: "left" | "center" | "right";
+  referenceLineProps?: ReferenceLineProps;
+  showXReferenceLine?: boolean;
+  showYReferenceLine?: boolean;
 }
 
 const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
@@ -73,16 +90,11 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
     {
       data,
       lines,
-      index,
-      chartProps = {
-        margin: { top: 5, right: 5, left: 5, bottom: 5 },
-      },
+      chartProps,
       showCartesianGrid = true,
       cartesianGridProps,
-      xAxisProps,
-      yAxisProps = {
-        width: 56,
-      },
+      xAxisProps: userXAxisProps,
+      yAxisProps: userYAxisProps,
       yAxisLabel,
       xAxisLabel,
       xAxisLabelProps,
@@ -95,27 +107,45 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       className,
       onValueChange,
       legendPosition = "right",
+      referenceLineProps,
+      showXReferenceLine = true,
+      showYReferenceLine = true,
       ...divProps
     },
     ref
   ) => {
-    const startEndOnly = xAxisProps?.interval === "preserveStartEnd";
+    const xAxisProps = React.useMemo(
+      () => ({
+        interval: "equidistantPreserveStart" as const,
+        ...userXAxisProps,
+      }),
+      [userXAxisProps]
+    );
+    const yAxisProps = React.useMemo(
+      () => ({
+        width: 56,
+        ...userYAxisProps,
+      }),
+      [userYAxisProps]
+    );
+
+    const startEndOnly = xAxisProps.interval === "preserveStartEnd";
     const paddingValue =
       (xAxisProps?.hide && yAxisProps?.hide) ||
       (startEndOnly && yAxisProps?.hide)
         ? 0
         : 20;
     const [legendHeight, setLegendHeight] = React.useState(60);
-    const [activeDot, setActiveDot] = React.useState<undefined>(undefined);
+    const [activeDot, setActiveDot] = React.useState<ActiveDot | undefined>(
+      undefined
+    );
     const [activeLegend, setActiveLegend] = React.useState<string | undefined>(
       undefined
     );
-    const hasOnValueChange = !!onValueChange;
 
     function onDotClick(itemData: any, event: React.MouseEvent) {
       event.stopPropagation();
-
-      if (!hasOnValueChange) return;
+      console.log("onDotClick", itemData as ActiveDot);
       if (
         (itemData.index === activeDot?.index &&
           itemData.dataKey === activeDot?.dataKey) ||
@@ -128,10 +158,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
         onValueChange?.(null);
       } else {
         setActiveLegend(itemData.dataKey);
-        setActiveDot({
-          index: itemData.index,
-          dataKey: itemData.dataKey,
-        });
+        setActiveDot(itemData);
         onValueChange?.({
           eventType: "dot",
           categoryClicked: itemData.dataKey,
@@ -141,8 +168,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
     }
 
     function onCategoryClick(dataKey: string) {
-      console.log("onCate", dataKey);
-      if (!hasOnValueChange) return;
+      console.log("onCategoryClick", dataKey);
       if (
         (dataKey === activeLegend && !activeDot) ||
         (hasOnlyOneValueForKey(data, dataKey) &&
@@ -163,7 +189,11 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
     return (
       <div ref={ref} className={cn("h-80 w-full", className)} {...divProps}>
         <ResponsiveContainer>
-          <LineChartPrimitive data={data} {...chartProps}>
+          <LineChartPrimitive
+            data={data}
+            margin={{ top: 2, right: showYReferenceLine ? 48: 2, left: 2, bottom: 2 }}
+            {...chartProps}
+          >
             {showCartesianGrid && (
               <CartesianGrid
                 className={cn(
@@ -175,21 +205,85 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                 {...cartesianGridProps}
               />
             )}
+           
+            {showYReferenceLine && (
+              <ReferenceLine
+                y={
+                  activeDot &&
+                  Number(
+                    data[activeDot.index!][
+                      activeDot.dataKey! as keyof (typeof data)[0]
+                    ]
+                  )
+                }
+                strokeDasharray="4 4"
+                stroke=""
+                className={cn("stroke-primary/20")}
+                isFront
+                ifOverflow="visible"
+              >
+                {activeDot && (
+                  <Label
+                    position="right"
+                    offset={10}
+                    className={cn("text-xs stroke-0 fill-text-primary ")}
+                  >
+                    {valueFormatter(
+                      Number(
+                        data[activeDot.index!][
+                          activeDot.dataKey! as keyof (typeof data)[0]
+                        ]
+                      )
+                    )}
+                  </Label>
+                )}
+              </ReferenceLine>
+            )}
+            {showXReferenceLine && (
+              <ReferenceLine
+                x={
+                  activeDot &&
+                  data[activeDot.index!][
+                    xAxisProps.dataKey as keyof (typeof data)[0]
+                  ]
+                }
+                strokeDasharray="4 4"
+                stroke=""
+                className={cn("stroke-primary/20")}
+                isFront
+              >
+                {activeDot && (
+                  <Label
+                    position="top"
+                    offset={8}
+                    stroke=""
+                    className={cn("text-xs stroke-0 fill-text-primary")}
+                  >
+                    {
+                      data[activeDot.index!][
+                        xAxisProps.dataKey as keyof (typeof data)[0]
+                      ]
+                    }
+                  </Label>
+                )}
+              </ReferenceLine>
+            )}
             <XAxis
               className={cn("text-xs fill-text-muted", xAxisProps?.className)}
-              dataKey={index}
               padding={{ left: paddingValue, right: paddingValue }}
               ticks={
-                startEndOnly
-                  ? [data[0][index], data[data.length - 1][index]]
+                startEndOnly &&
+                typeof xAxisProps.dataKey !== "function" &&
+                xAxisProps?.dataKey
+                  ? [
+                      data[0][xAxisProps.dataKey],
+                      data[data.length - 1][xAxisProps.dataKey],
+                    ]
                   : undefined
               }
               tick={{ transform: "translate(0, 6)" }}
               tickLine={false}
               axisLine={false}
-              fill=""
-              stroke=""
-              interval="equidistantPreserveStart"
               {...xAxisProps}
             >
               {xAxisLabel && (
@@ -213,9 +307,6 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
               tickLine={false}
               axisLine={false}
               tick={{ transform: "translate(-4, 0)" }}
-              fill=""
-              stroke=""
-              width={yAxisProps.width}
               domain={[0, "auto"]}
               {...yAxisProps}
             >
@@ -239,7 +330,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
               wrapperStyle={{ outline: "none" }}
               isAnimationActive={true}
               animationDuration={100}
-              cursor={{ stroke: "#d1d5db", strokeWidth: 1 }}
+              cursor={{ stroke: "", className: "stroke-primary/20", strokeWidth: 1 }}
               offset={24}
               position={{ y: -2 }}
               content={({ active, ...other }) => {
@@ -264,22 +355,17 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
             {showLegend ? (
               <Legend
                 verticalAlign="top"
-                height={legendHeight}
-                content={({ onClick, payload }) => {
-                  const clickEvent = hasOnValueChange
-                    ? (clickedLegendItem: string) =>
-                        onCategoryClick(clickedLegendItem)
-                    : undefined;
+                height={legendHeight + (showYReferenceLine ? 10 :0)}
+                content={({ payload }) => {
                   return (
                     <CustomLegend
                       setLegendHeight={setLegendHeight}
                       activeLegend={activeLegend}
                       yAxisWidth={yAxisProps.width}
                       legendPosition={legendPosition}
-                      onClick={() => {
-                        clickEvent;
-                        onClick;
-                      }}
+                      onClick={(clickedLegendItem: string) =>
+                        onCategoryClick(clickedLegendItem)
+                      }
                       payload={payload}
                     />
                   );
@@ -301,21 +387,62 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                       : (color as string)
                     : ""
                 }
+                strokeOpacity={
+                  activeDot || (activeLegend && activeLegend !== id) ? 0.3 : 1
+                }
                 strokeWidth={2}
                 strokeLinejoin="round"
                 strokeLinecap="round"
-                className={cn("stroke-primary", className)}
-                activeDot={({ dataKey, fill, ...props }: any) => {
+                className={cn("stroke-primary cursor-pointer", className)}
+                activeDot={({ fill, ...props }: any) => {
                   return (
                     <Dot
-                      className={cn("stroke-background fill-primary")}
+                      className={cn(
+                        "stroke-background fill-primary cursor-pointer"
+                      )}
                       style={{ fill }}
+                      onClick={(_, event) =>
+                        onDotClick({ fill, ...props }, event)
+                      }
                       {...props}
                     />
                   );
                 }}
-                dot={({ index }) => {
+                dot={({
+                  index,
+                  dataKey,
+                  stroke,
+                  fill,
+                  strokeOpacity,
+                  className,
+                  r,
+                  ...props
+                }: any) => {
+                  const shouldShowDot =
+                    activeDot &&
+                    activeDot.index === index &&
+                    activeDot.dataKey === props.id;
+                  if (shouldShowDot) {
+                    return (
+                      <Dot
+                        key={index}
+                        index={index}
+                        style={{ fill: stroke }}
+                        stroke=""
+                        r={5}
+                        strokeOpacity={1}
+                        fill=""
+                        className={cn("stroke-background fill-primary")}
+                        {...props}
+                      />
+                    );
+                  }
                   return <React.Fragment key={index}></React.Fragment>;
+                }}
+                onClick={(props: any, event) => {
+                  event.stopPropagation();
+                  const { name } = props;
+                  onCategoryClick(name);
                 }}
                 {...lineProps}
               />
