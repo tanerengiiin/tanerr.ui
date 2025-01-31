@@ -7,6 +7,10 @@ export const docsConfig = {
           title: "Line Chart",
           href: "/docs/charts/line-chart",
         },
+        {
+          title: "Area Chart",
+          href: "/docs/charts/area-chart",
+        },
       ],
     },
     {
